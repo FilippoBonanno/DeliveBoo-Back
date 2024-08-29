@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('visibility');
             $table->text('description');
             $table->string('img');
+            $table->timestamps();
         });
 
     }

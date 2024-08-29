@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('buyer_name');
             $table->string('buyer_address');
             $table->string('buyer_phone');
+            $table->timestamps();
         });
 
     }

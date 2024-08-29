@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
 
         Schema::create('category_restaurant', function (Blueprint $table) {
             $table->id();
@@ -21,7 +20,6 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->cascadeOnDelete();
         });
 
-        Schema::enableForeignKeyConstraints();
     }
 
     /**

@@ -17,44 +17,44 @@ class CategorySeeder extends Seeder
         $newCategory->name = 'Pizza';
         $newCategory->save();
 
-        $newCategory1 = new Category();
-        $newCategory1->name = 'Italiano';
-        $newCategory1->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Italiano';
+        $newCategory->save();
 
-        $newCategory2 = new Category();
-        $newCategory2->name = 'Mediterraneo';
-        $newCategory2->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Mediterraneo';
+        $newCategory->save();
 
-        $newCategory3 = new Category();
-        $newCategory3->name = 'Fast Food';
-        $newCategory3->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Fast Food';
+        $newCategory->save();
 
-        $newCategory4 = new Category();
-        $newCategory4->name = 'Cinese';
-        $newCategory4->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Cinese';
+        $newCategory->save();
 
-        $newCategory5 = new Category();
-        $newCategory5->name = 'Giapponese';
-        $newCategory5->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Giapponese';
+        $newCategory->save();
 
-        $newCategory6 = new Category();
-        $newCategory6->name = 'Messicano';
-        $newCategory6->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Messicano';
+        $newCategory->save();
 
-        $newCategory7 = new Category();
-        $newCategory7->name = 'Indiano';
-        $newCategory7->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Indiano';
+        $newCategory->save();
 
-        $newCategory8 = new Category();
-        $newCategory8->name = 'Francese';
-        $newCategory8->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Francese';
+        $newCategory->save();
 
-        $newCategory9 = new Category();
-        $newCategory9->name = 'Greco';
-        $newCategory9->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Greco';
+        $newCategory->save();
 
-        $newCategory10 = new Category();
-        $newCategory10->name = 'Vegetariano';
-        $newCategory10->save();
+        $newCategory = new Category();
+        $newCategory->name = 'Vegetariano';
+        $newCategory->save();
     }
 }
