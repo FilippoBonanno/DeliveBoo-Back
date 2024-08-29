@@ -11,20 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::disableForeignKeyConstraints();
 
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamp('order_date');
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('restaurant_id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->cascadeOnDelete();
             $table->decimal('total_price');
             $table->string('buyer_name');
             $table->string('buyer_address');
             $table->string('buyer_phone');
         });
 
-        Schema::enableForeignKeyConstraints();
     }
 
     /**

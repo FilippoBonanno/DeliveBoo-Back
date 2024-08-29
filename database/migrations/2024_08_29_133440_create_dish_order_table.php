@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('orders_dishes', function (Blueprint $table) {
+        Schema::create('dish_order', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->bigInteger('dish_id');
-            $table->foreign('dish_id')->references('id')->on('dishes');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders')->cascadeOnDelete();
+            $table->unsignedBigInteger('dish_id');
+            $table->foreign('dish_id')->references('id')->on('dishes')->cascadeOnDelete();
             $table->integer('quantity');
             $table->decimal('price');
-            $table->string('restaurant_name');
+            $table->string('dish_name');
         });
 
         Schema::enableForeignKeyConstraints();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders_dishes');
+        Schema::dropIfExists('dish_order');
     }
 };
