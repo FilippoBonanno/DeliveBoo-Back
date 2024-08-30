@@ -13,7 +13,7 @@
             </li>
             <h4>Img</h4>
             <li>
-                <img src="{{ asset('storage/' . $restaurant->img) }}" alt="img">
+                <img src="{{ asset('storage/' . $restaurant->img) }}" alt="img" class="w-25">
             </li>
             <h4>Tax Id</h4>
             <li>
