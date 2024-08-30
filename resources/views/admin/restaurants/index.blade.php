@@ -1,29 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach ($restaurants as $restaurant)
-        <ul>
-            <h4>Name</h4>
-            <li>
-                {{$restaurant->name}}
-            </li>
-            <h4>Address</h4>
-            <li>
-                {{$restaurant->address}}
-            </li>
-            <h4>Img</h4>
-            <li>
-                <img src="{{ asset('storage/' . $restaurant->img) }}" alt="img" class="w-25">
-            </li>
-            <h4>Tax Id</h4>
-            <li>
-                {{$restaurant->tax_id}}
-            </li>
-            <h4>User Id</h4> 
-            <li>
-                {{$restaurant->user_id}}
-            </li>
-        </ul>
-        <hr>
-    @endforeach
+    <div class="text-center px-2 row m-0">
+        @foreach ($restaurants as $restaurant)
+            <div class="col-4 mt-3 border border-primary">
+                    <h4>Name</h4>
+                    <div>
+                        <a href="{{ route('admin.restaurants.show', $restaurant) }}">{{ $restaurant->name }}</a>
+                    </div>
+                    <h4>Address</h4>
+                    <div>
+                        {{ $restaurant->address }}
+                    </div>
+                    <h4>Img</h4>
+                    <div>
+                        <img src="{{ asset('storage/' . $restaurant->img) }}" alt="img" class="w-100">
+                    </div>
+                    <h4>Tax Id</h4>
+                    <div>
+                        {{ $restaurant->tax_id }}
+                    </div>
+                    <h4>User Id</h4>
+                    <div>
+                        {{ $restaurant->user_id }}
+                    </div>
+            </div>
+        @endforeach
+    </div>
 @endsection
