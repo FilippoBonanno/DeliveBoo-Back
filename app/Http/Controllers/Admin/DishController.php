@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class DishController extends Controller
 {
@@ -16,7 +17,7 @@ class DishController extends Controller
         $dishList = Dish::all();
 
         $data = [
-            "dishList" => $dishList,
+            "dishes" => $dishList,
         ];
 
         return view('admin.dishes.index', $data);
@@ -27,7 +28,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.dishes.create');
     }
 
     /**
@@ -71,9 +72,9 @@ class DishController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Dish $dish)
     {
-        //
+        
     }
 
     /**

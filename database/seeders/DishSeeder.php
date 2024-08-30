@@ -18,7 +18,7 @@ class DishSeeder extends Seeder
         $newDish->price = 8.99;
         $newDish->restaurant_id = 1;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -27,7 +27,7 @@ class DishSeeder extends Seeder
         $newDish->price = 10.50;
         $newDish->restaurant_id = 2;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -36,7 +36,7 @@ class DishSeeder extends Seeder
         $newDish->price = 12.00;
         $newDish->restaurant_id = 3;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -45,7 +45,7 @@ class DishSeeder extends Seeder
         $newDish->price = 9.80;
         $newDish->restaurant_id = 4;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -54,7 +54,7 @@ class DishSeeder extends Seeder
         $newDish->price = 15.50;
         $newDish->restaurant_id = 5;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -63,7 +63,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.00;
         $newDish->restaurant_id = 6;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -72,7 +72,7 @@ class DishSeeder extends Seeder
         $newDish->price = 18.99;
         $newDish->restaurant_id = 7;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -81,7 +81,7 @@ class DishSeeder extends Seeder
         $newDish->price = 8.50;
         $newDish->restaurant_id = 8;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -90,7 +90,7 @@ class DishSeeder extends Seeder
         $newDish->price = 10.20;
         $newDish->restaurant_id = 9;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -99,7 +99,7 @@ class DishSeeder extends Seeder
         $newDish->price = 12.50;
         $newDish->restaurant_id = 10;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -108,7 +108,7 @@ class DishSeeder extends Seeder
         $newDish->price = 9.00;
         $newDish->restaurant_id = 11;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -117,7 +117,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.50;
         $newDish->restaurant_id = 12;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -126,7 +126,7 @@ class DishSeeder extends Seeder
         $newDish->price = 7.20;
         $newDish->restaurant_id = 13;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -135,7 +135,7 @@ class DishSeeder extends Seeder
         $newDish->price = 14.30;
         $newDish->restaurant_id = 14;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -144,7 +144,7 @@ class DishSeeder extends Seeder
         $newDish->price = 9.70;
         $newDish->restaurant_id = 15;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -153,7 +153,7 @@ class DishSeeder extends Seeder
         $newDish->price = 10.80;
         $newDish->restaurant_id = 16;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -162,7 +162,7 @@ class DishSeeder extends Seeder
         $newDish->price = 10.00;
         $newDish->restaurant_id = 17;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -171,7 +171,7 @@ class DishSeeder extends Seeder
         $newDish->price = 16.90;
         $newDish->restaurant_id = 18;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -180,7 +180,7 @@ class DishSeeder extends Seeder
         $newDish->price = 9.50;
         $newDish->restaurant_id = 19;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -189,7 +189,7 @@ class DishSeeder extends Seeder
         $newDish->price = 12.80;
         $newDish->restaurant_id = 20;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -198,7 +198,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.20;
         $newDish->restaurant_id = 1;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -207,7 +207,7 @@ class DishSeeder extends Seeder
         $newDish->price = 8.70;
         $newDish->restaurant_id = 2;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -216,7 +216,7 @@ class DishSeeder extends Seeder
         $newDish->price = 9.80;
         $newDish->restaurant_id = 3;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -225,7 +225,7 @@ class DishSeeder extends Seeder
         $newDish->price = 10.50;
         $newDish->restaurant_id = 4;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -234,7 +234,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.00;
         $newDish->restaurant_id = 5;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -243,7 +243,7 @@ class DishSeeder extends Seeder
         $newDish->price = 10.90;
         $newDish->restaurant_id = 6;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -252,7 +252,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.50;
         $newDish->restaurant_id = 7;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -261,7 +261,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.00;
         $newDish->restaurant_id = 8;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -270,7 +270,7 @@ class DishSeeder extends Seeder
         $newDish->price = 12.50;
         $newDish->restaurant_id = 9;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -279,7 +279,7 @@ class DishSeeder extends Seeder
         $newDish->price = 12.00;
         $newDish->restaurant_id = 10;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -288,7 +288,7 @@ class DishSeeder extends Seeder
         $newDish->price = 13.50;
         $newDish->restaurant_id = 11;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -297,7 +297,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.20;
         $newDish->restaurant_id = 12;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -306,7 +306,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.70;
         $newDish->restaurant_id = 13;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -315,7 +315,7 @@ class DishSeeder extends Seeder
         $newDish->price = 13.00;
         $newDish->restaurant_id = 14;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -324,7 +324,7 @@ class DishSeeder extends Seeder
         $newDish->price = 10.80;
         $newDish->restaurant_id = 15;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -333,7 +333,7 @@ class DishSeeder extends Seeder
         $newDish->price = 13.20;
         $newDish->restaurant_id = 16;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -342,7 +342,7 @@ class DishSeeder extends Seeder
         $newDish->price = 12.80;
         $newDish->restaurant_id = 17;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -351,7 +351,7 @@ class DishSeeder extends Seeder
         $newDish->price = 11.50;
         $newDish->restaurant_id = 18;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -360,7 +360,7 @@ class DishSeeder extends Seeder
         $newDish->price = 13.50;
         $newDish->restaurant_id = 19;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
 
@@ -369,7 +369,7 @@ class DishSeeder extends Seeder
         $newDish->price = 14.20;
         $newDish->restaurant_id = 20;
         $newDish->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-        $newDish->image = 'https://via.placeholder.com/150';
+        $newDish->img = 'https://via.placeholder.com/150';
         $newDish->visibility = true;
         $newDish->save();
     }

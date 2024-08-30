@@ -20,6 +20,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1001;
         $newRestaurant->user_id = 1;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Osteria del Gusto';
@@ -28,6 +29,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1002;
         $newRestaurant->user_id = 2;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Il Vecchio Mulino';
@@ -36,6 +38,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1003;
         $newRestaurant->user_id = 3;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante Bella Napoli';
@@ -44,6 +47,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1004;
         $newRestaurant->user_id = 4;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Cucina Mediterranea';
@@ -52,6 +56,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1005;
         $newRestaurant->user_id = 5;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'La Pergola';
@@ -60,6 +65,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1006;
         $newRestaurant->user_id = 6;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante Il Girasole';
@@ -68,6 +74,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1007;
         $newRestaurant->user_id = 7;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Pizzeria da Luigi';
@@ -76,6 +83,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1008;
         $newRestaurant->user_id = 8;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante La Fenice';
@@ -84,6 +92,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1009;
         $newRestaurant->user_id = 9;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Al Forno';
@@ -92,6 +101,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1010;
         $newRestaurant->user_id = 10;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante La Dolce Vita';
@@ -100,6 +110,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1011;
         $newRestaurant->user_id = 11;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'La Taverna di Bacco';
@@ -108,6 +119,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1012;
         $newRestaurant->user_id = 12;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante Il Mare';
@@ -116,6 +128,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1013;
         $newRestaurant->user_id = 13;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante La Lanterna';
@@ -124,6 +137,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1014;
         $newRestaurant->user_id = 14;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Il Cortile';
@@ -132,6 +146,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1015;
         $newRestaurant->user_id = 15;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'La Cantina';
@@ -140,6 +155,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1016;
         $newRestaurant->user_id = 16;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante L\'Orto';
@@ -148,14 +164,16 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1017;
         $newRestaurant->user_id = 17;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante Il Sogno';
-        $newRestaurant->address = 'Via Duomo 1, Napoli';
+        $newRestaurant->address = 'Via Duomo 1, 2, Napoli';
         $newRestaurant->img = 'il_sogno.jpg';
         $newRestaurant->tax_id = 1018;
         $newRestaurant->user_id = 18;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante La Conchiglia';
@@ -164,6 +182,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1019;
         $newRestaurant->user_id = 19;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = 'Ristorante Il Castello';
@@ -172,5 +191,6 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->tax_id = 1020;
         $newRestaurant->user_id = 20;
         $newRestaurant->save();
+        $newRestaurant->categories()->attach([rand(1,5), rand(6,10)]);
     }
 }
