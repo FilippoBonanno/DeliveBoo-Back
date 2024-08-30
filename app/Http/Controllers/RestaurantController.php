@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
@@ -12,7 +14,10 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'restaurants' => Restaurant::orderByDesc('id')->get()
+        ];
+        return view('admin.restaurants.index', $data);
     }
 
     /**
@@ -20,7 +25,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -32,15 +37,15 @@ class RestaurantController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'tax_id' => 'required|string|max:255',
-            'category_id.*' => 'required|numeric|integer',
-            'img' => 'string',
+            'category_id' => 'required',
+            'category_id.*' => 'numeric|integer',
+            'img' => 'nullable|image',
         ]);
-
         $newRestaurant = new Restaurant();
-        $newRestaurant-> categories()->attach($data['category_id']);
         $newRestaurant->fill($data);
+        $newRestaurant->user_id = Auth::user()->id;
         $newRestaurant->save();
-        
+        $newRestaurant->categories()->attach([$data['category_id']]);
         return redirect()->route('admin.restaurants.index');
     }
 
