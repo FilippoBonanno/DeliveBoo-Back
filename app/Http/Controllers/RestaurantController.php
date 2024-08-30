@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -39,8 +40,14 @@ class RestaurantController extends Controller
             'tax_id' => 'required|string|max:255',
             'category_id' => 'required',
             'category_id.*' => 'numeric|integer',
-            'img' => 'nullable|image',
+            'img' => 'required|image',
         ]);
+
+
+        $img = Storage::put('upload', $data['img']);
+        $data['img'] = $img;  //salva il percorso
+
+
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($data);
         $newRestaurant->user_id = Auth::user()->id;
