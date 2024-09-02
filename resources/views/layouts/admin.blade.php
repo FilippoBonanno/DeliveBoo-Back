@@ -63,7 +63,7 @@
 								</li>
 							@endif
 
-							@if (Auth::user()->restaurant)
+							@if (Auth::user()->restaurant || Auth::user()->restaurant->dishes)
 								<li class="nav-item">
 									<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
 										href="{{ route('admin.dishes.index') }}">
