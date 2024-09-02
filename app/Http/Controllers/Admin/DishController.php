@@ -16,13 +16,15 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishList = Dish::all();
-
-        $data = [
-            "dishes" => $dishList,
-        ];
-
-        return view('admin.dishes.index', $data);
+        if (isset(auth()->user()->restaurant->dish)) {
+            $dishList = auth()->user()->restaurant->dish;
+            $data = [
+                "dishes" => $dishList,
+            ];
+            return view('admin.dishes.index', $data);
+        } else {
+            abort(403, 'Non hai un ristorante!');
+        }
     }
 
     /**
@@ -30,7 +32,11 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('admin.dishes.create');
+        if (isset(auth()->user()->restaurant)) {
+            return view('admin.dishes.create');
+        } else {
+            abort(403, 'Non hai un ristorante!');
+        }
     }
 
     /**
@@ -38,27 +44,31 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => "required|min:1|max:255",
-            'price' => "required",
-            'description' => "required|min:1|max:255",
-            'img' => "required|image",
-            // 'visibility' => "required",
-        ]);
+        if (isset(auth()->user()->restaurant)) {
+            $data = $request->validate([
+                'name' => "required|min:1|max:255",
+                'price' => "required",
+                'description' => "required|min:1|max:255",
+                'img' => "required|image",
+                // 'visibility' => "required",
+            ]);
 
-        if ($request->has('img')) {
-            $img_path = Storage::put('uploads', $request->img);
-            $data['img'] = $img_path;
+            if ($request->has('img')) {
+                $img_path = Storage::put('uploads', $request->img);
+                $data['img'] = $img_path;
+            }
+
+
+            $newDish = new Dish();
+            $newDish->fill($data);
+            $newDish->restaurant_id = Auth::user()->restaurant->id;
+            $newDish->visibility = true;
+            $newDish->save();
+
+            return redirect()->route('admin.dishes.show', $newDish);
+        }else{
+            abort(403, 'come ci sei arrivato?');
         }
-
-
-        $newDish = new Dish();
-        $newDish->fill($data);
-        $newDish->restaurant_id = Auth::user()->restaurant->id;
-        $newDish->visibility = true;
-        $newDish->save();
-
-        return redirect()->route('admin.dishes.show', $newDish);
     }
 
     /**
@@ -66,11 +76,17 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        $data = [
-            "dish" => $dish
-        ];
+        $restaurant = auth()->user()->restaurant;
 
-        return view('admin.dishes.show', $data);
+        if (!$restaurant || $restaurant->id != $dish->restaurant_id) {
+            abort(403, 'Accesso non autorizzato');
+        } else {
+            $data = [
+                "dish" => $dish
+            ];
+
+            return view('admin.dishes.show', $data);
+        }
     }
 
     /**
@@ -79,13 +95,17 @@ class DishController extends Controller
     public function edit(Dish $dish)
     {
 
+        $restaurant = auth()->user()->restaurant;
 
-        $data = [
-            'dish' => $dish,
+        if (!$restaurant || $restaurant->id != $dish->restaurant_id) {
+            abort(403, 'Accesso non autorizzato');
+        } else {
+            $data = [
+                "dish" => $dish
+            ];
 
-        ];
-
-        return view('admin.dishes.edit', $data);
+            return view('admin.dishes.edit', $data);
+        }
     }
 
     /**
