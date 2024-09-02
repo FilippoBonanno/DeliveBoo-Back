@@ -27,7 +27,10 @@ class DishController extends Controller
                 ];
                 return view('admin.dishes.index', $data);
             } else {
-                abort(403, 'Non hai i piatti!');
+                $data = [
+                    'status' => 'Non hai nessun piatto!'
+                ];
+                return view('admin.errorPage',$data);
             }
         } else {
             abort(403, 'Non hai un ristorante!');
@@ -146,10 +149,6 @@ class DishController extends Controller
     {
         Storage::delete($dish->img);
         $dish->delete();
-        if (isset(auth()->user()->restaurant->dish)) {
-            return redirect()->route('admin.dishes.index');
-        } else {
-            return redirect()->route('admin.dashboard');
-        }
+        return redirect()->route('admin.dishes.index');
     }
 }
