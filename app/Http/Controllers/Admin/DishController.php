@@ -16,12 +16,19 @@ class DishController extends Controller
      */
     public function index()
     {
-        if (isset(auth()->user()->restaurant->dish)) {
-            $dishList = auth()->user()->restaurant->dish;
-            $data = [
-                "dishes" => $dishList,
-            ];
-            return view('admin.dishes.index', $data);
+        $user = auth()->user();
+
+        if ($user->restaurant) {
+            // Se ha un ristorante, controlla se ha dei piatti
+            if ($user->restaurant->dishes->isNotEmpty()) {
+                $dishList = auth()->user()->restaurant->dish;
+                $data = [
+                    "dishes" => $dishList,
+                ];
+                return view('admin.dishes.index', $data);
+            } else {
+                abort(403, 'Non hai i piatti!');
+            }
         } else {
             abort(403, 'Non hai un ristorante!');
         }
@@ -66,7 +73,7 @@ class DishController extends Controller
             $newDish->save();
 
             return redirect()->route('admin.dishes.show', $newDish);
-        }else{
+        } else {
             abort(403, 'come ci sei arrivato?');
         }
     }
@@ -139,11 +146,10 @@ class DishController extends Controller
     {
         Storage::delete($dish->img);
         $dish->delete();
-        if(isset(auth()->user()->restaurant->dish)){
+        if (isset(auth()->user()->restaurant->dish)) {
             return redirect()->route('admin.dishes.index');
-        }else{
+        } else {
             return redirect()->route('admin.dashboard');
         }
-        
     }
 }
