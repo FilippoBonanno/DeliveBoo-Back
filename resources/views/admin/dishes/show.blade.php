@@ -13,7 +13,13 @@
 						<p class="card-text"><b>Prezzo del piatto:</b> {{ $dish->price }}</p>
 						<p class="card-text"><b>Ristorante:</b> {{ $dish->price }}</p>
 						<p class="card-text"><b>Desrizione:</b> {{ $dish->description }}</p>
-						<p class="card-text"><b>Visibilita':</b> {{ $dish->visibility }}</p>
+						<p class="card-text"><b>Visibilita':</b>
+							@if ($dish->visibility == 1)
+								Visibile
+							@else
+								Nascosto
+							@endif
+						</p>
 					</div>
 				</div>
 			</div>
