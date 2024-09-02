@@ -11,7 +11,7 @@
 					<div class="card-body">
 						<p class="card-text"><b>Nome Ristorante:</b> {{ $dish->name }}</p>
 						<p class="card-text"><b>Prezzo del piatto:</b> {{ $dish->price }}</p>
-						<p class="card-text"><b>Ristorante:</b> {{ $dish->price }}</p>
+						<p class="card-text"><b>Ristorante:</b> {{ $dish->restaurant->name }}</p>
 						<p class="card-text"><b>Desrizione:</b> {{ $dish->description }}</p>
 						<p class="card-text"><b>Visibilita':</b>
 							@if ($dish->visibility == 1)
