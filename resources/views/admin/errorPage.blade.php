@@ -19,9 +19,10 @@
 								{{ $status }}
 							</div>
 						@endif
-
-						<h2>Il tuo ristorante :</h2>
-						<h1>{{ Auth::user()->restaurant->name }}</h1>
+						@if (Auth::user()->restaurant)
+							<h2>Il tuo ristorante :</h2>
+							<h1>{{ Auth::user()->restaurant->name }}</h1>
+						@endif
 					</div>
 				</div>
 			</div>
