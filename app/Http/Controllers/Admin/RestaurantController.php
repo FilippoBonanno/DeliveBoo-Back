@@ -28,11 +28,10 @@ class RestaurantController extends Controller
     public function create()
     {
         $data = [
-            'restaurants' => Restaurant::orderByDesc('id')->get(),
-            'status' => 'declined '
+            'status' => 'You can create only 1 restaurant!'
         ];
         if (auth()->user()->restaurant) {
-            return view('admin.restaurants.index', $data);
+            return view('admin.errorRestaurant', $data);
         } else {
             return view('admin.restaurants.create');
         }
