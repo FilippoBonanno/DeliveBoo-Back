@@ -47,13 +47,19 @@
 
 							<li class="nav-item">
 								<a class="nav-link text-white" href="{{ route('admin.restaurants.index') }}">
-									<i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Lista ristorante
+									<i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Lista ristoranti
 								</a>
 							</li>
 
 							<li class="nav-item">
 								<a class="nav-link text-white" href="{{ route('admin.restaurants.create') }}">
 									<i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Crea ristorante
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link text-white" href="{{ route('admin.dishes.index') }}">
+									<i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Lista piatti
 								</a>
 							</li>
 
