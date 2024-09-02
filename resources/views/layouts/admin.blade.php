@@ -46,28 +46,39 @@
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.restaurants.index') }}">
+								<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurant.index' ? 'bg-secondary' : '' }}"
+									href="{{ route('admin.restaurants.index') }}">
 									<i class="fa-solid fa-list fa-lg fa-fw"></i> Lista ristoranti
 								</a>
 							</li>
 
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.restaurants.create') }}">
-									<i class="fa-solid fa-building fa-lg fa-fw"></i> Crea ristorante
-								</a>
-							</li>
+							@if (!Auth::user()->restaurant)
+								<li class="nav-item">
+									<a
+										class="nav-link text-white {{ Route::currentRouteName() == 'admin.restaurants.create' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.restaurants.create') }}">
+										<i class="fa-solid fa-building fa-lg fa-fw"></i> Crea ristorante
+									</a>
+								</li>
+							@endif
 
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.dishes.index') }}">
-									<i class="fa-solid fa-plate-wheat fa-lg fa-fw"></i> Lista piatti
-								</a>
-							</li>
+							@if (Auth::user()->restaurant)
+								<li class="nav-item">
+									<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.dishes.index') }}">
+										<i class="fa-solid fa-plate-wheat fa-lg fa-fw"></i> Lista piatti
+									</a>
+								</li>
+							@endif
 
-							<li class="nav-item">
-								<a class="nav-link text-white" href="{{ route('admin.dishes.create') }}">
-									<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Crea piatto
-								</a>
-							</li>
+							@if (Auth::user()->restaurant)
+								<li class="nav-item">
+									<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.dishes.create') }}">
+										<i class="fa-solid fa-square-plus fa-lg fa-fw"></i> Crea piatto
+									</a>
+								</li>
+							@endif
 
 							<li class="nav-item">
 								<a class="nav-link text-white" href="{{ route('logout') }}"
