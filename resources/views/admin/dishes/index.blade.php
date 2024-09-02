@@ -20,10 +20,11 @@
 				<div>
 					{{ $dish->description }}
 				</div>
-				<h4>User Id</h4>
+				<h4>Restaurant</h4>
 				<div>
-					{{ $dish->restaurant_id }}
+					{{ $dish->restaurant->name }}
 				</div>
+				<a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-primary">Edit</a>
 			</div>
 		@endforeach
 	</div>

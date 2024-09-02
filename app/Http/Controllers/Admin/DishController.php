@@ -79,7 +79,7 @@ class DishController extends Controller
 
         $data = [
             'dish' => $dish,
-            
+
         ];
 
         return view('admin.dishes.edit', $data);
@@ -102,7 +102,7 @@ class DishController extends Controller
         if($request->has('img')) {
             $img_path = Storage::put('uploads', $request->img);
             $data['img'] = $img_path;  
-
+            Storage::delete($dish->img);
         }
 
         $dish->update($data);
