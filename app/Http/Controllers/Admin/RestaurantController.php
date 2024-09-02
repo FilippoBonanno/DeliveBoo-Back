@@ -55,7 +55,7 @@ class RestaurantController extends Controller
         ]);
 
 
-        $img = Storage::put('upload', $data['img']);
+        $img = Storage::put('uploads', $data['img']);
         $data['img'] = $img;  //salva il percorso
 
 
