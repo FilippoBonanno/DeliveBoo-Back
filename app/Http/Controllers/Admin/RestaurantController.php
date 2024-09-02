@@ -63,7 +63,7 @@ class RestaurantController extends Controller
         $newRestaurant->fill($data);
         $newRestaurant->user_id = Auth::user()->id;
         $newRestaurant->save();
-        $newRestaurant->categories()->sync([$data['category_id']]);
+        $newRestaurant->categories()->sync($data['category_id']);
         return redirect()->route('admin.restaurants.index');
     }
 
