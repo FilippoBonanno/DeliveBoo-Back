@@ -63,13 +63,15 @@
 								</li>
 							@endif
 
-							@if (Auth::user()->restaurant->dishes->isNotEmpty())
-								<li class="nav-item">
-									<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
-										href="{{ route('admin.dishes.index') }}">
-										<i class="fa-solid fa-plate-wheat fa-lg fa-fw"></i> Lista piatti
-									</a>
-								</li>
+							@if (Auth::user()->restaurant)
+								@if (Auth::user()->restaurant->dishes->isNotEmpty())
+									<li class="nav-item">
+										<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.index' ? 'bg-secondary' : '' }}"
+											href="{{ route('admin.dishes.index') }}">
+											<i class="fa-solid fa-plate-wheat fa-lg fa-fw"></i> Lista piatti
+										</a>
+									</li>
+								@endif
 							@endif
 
 							@if (Auth::user()->restaurant)
