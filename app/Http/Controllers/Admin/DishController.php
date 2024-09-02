@@ -39,24 +39,25 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => "required|min:1|max:255", 
-            'price' => "required",  
-            'description' => "required|min:1|max:255", 
-            'img' => "required|image", 
+            'name' => "required|min:1|max:255",
+            'price' => "required",
+            'description' => "required|min:1|max:255",
+            'img' => "required|image",
             // 'visibility' => "required",
         ]);
 
-        if($request->has('img')) {
+        if ($request->has('img')) {
             $img_path = Storage::put('uploads', $request->img);
             $data['img'] = $img_path;
         }
 
-        
+
         $newDish = new Dish();
         $newDish->fill($data);
-        dd($newDish->restaurant_id = Auth::user()->restaurant->id);
+        $newDish->restaurant_id = Auth::user()->restaurant->id;
+        $newDish->visibility = true;
         $newDish->save();
-        
+
         return redirect()->route('admin.dishes.show', $newDish);
     }
 
@@ -93,17 +94,17 @@ class DishController extends Controller
     public function update(Request $request, Dish $dish)
     {
         $data = $request->validate([
-            'name' => "required|min:1|max:255", 
-            'price' => "required", 
-            'restaurant_id' => "required", 
-            'description' => "required|min:1|max:255", 
-            'img' => "required|image", 
+            'name' => "required|min:1|max:255",
+            'price' => "required",
+            'restaurant_id' => "required",
+            'description' => "required|min:1|max:255",
+            'img' => "required|image",
             'visibility' => "required",
         ]);
 
-        if($request->has('img')) {
+        if ($request->has('img')) {
             $img_path = Storage::put('uploads', $request->img);
-            $data['img'] = $img_path;  
+            $data['img'] = $img_path;
             Storage::delete($dish->img);
         }
 
