@@ -34,7 +34,7 @@ class RestaurantController extends Controller
             $data = [
                 'status' => 'You can create only 1 restaurant!',
             ];
-            return view('admin.errorRestaurant', $data);
+            return view('admin.errorPage', $data);
         } else {
             return view('admin.restaurants.create', $data);
         }
