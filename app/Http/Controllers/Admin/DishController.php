@@ -139,6 +139,11 @@ class DishController extends Controller
     {
         Storage::delete($dish->img);
         $dish->delete();
-        return redirect()->route('admin.dishes.index');
+        if(isset(auth()->user()->restaurant->dish)){
+            return redirect()->route('admin.dishes.index');
+        }else{
+            return redirect()->route('admin.dashboard');
+        }
+        
     }
 }
