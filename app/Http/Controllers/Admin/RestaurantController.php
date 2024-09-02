@@ -27,7 +27,15 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurants.create');
+        $data = [
+            'restaurants' => Restaurant::orderByDesc('id')->get(),
+            'status' => 'declined '
+        ];
+        if (auth()->user()->restaurant) {
+            return view('admin.restaurants.index', $data);
+        } else {
+            return view('admin.restaurants.create');
+        }
     }
 
     /**
@@ -65,7 +73,7 @@ class RestaurantController extends Controller
         $data = [
             'restaurants' => $restaurant
         ];
-        return view('admin.restaurants.show',$data);
+        return view('admin.restaurants.show', $data);
     }
 
     /**
