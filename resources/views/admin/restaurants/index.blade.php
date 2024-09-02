@@ -20,7 +20,7 @@
 				<div>
 					{{ $restaurant->tax_id }}
 				</div>
-				<h4>User Id</h4>
+				<h4>Ristoratore</h4>
 				<div>
 					{{ $restaurant->user->name }}
 				</div>
