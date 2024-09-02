@@ -55,16 +55,11 @@
 				@enderror
 			</div>
 
-			{{-- da cambiare --}}
-			<div class="mb-3">
-				<label for="category_id" class="form-label">Tipo Nuovo Progetto</label>
-				<select name="category_id" required>
-					<option value="1">1</option>
-				</select>
-				@error('category_id')
-					<div class="form-text text-danger">{{ $message }}</div>
-				@enderror
-			</div>
+			@foreach ($categories as $item)
+				<label for="category_id" class="form-label">{{ $item->name }}</label>
+				<input type="checkbox" class="form-check-input" name="category_id[]" value="{{ $item->id }}">
+			@endforeach
+
 
 			<button type="submit" class="btn btn-outline-primary">Invia Nuovo Progetto</button>
 		</form>

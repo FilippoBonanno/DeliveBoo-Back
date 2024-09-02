@@ -28,12 +28,15 @@ class RestaurantController extends Controller
     public function create()
     {
         $data = [
-            'status' => 'You can create only 1 restaurant!'
+            'categories' => Category::all()
         ];
         if (auth()->user()->restaurant) {
+            $data = [
+                'status' => 'You can create only 1 restaurant!',
+            ];
             return view('admin.errorRestaurant', $data);
         } else {
-            return view('admin.restaurants.create');
+            return view('admin.restaurants.create', $data);
         }
     }
 
@@ -60,7 +63,7 @@ class RestaurantController extends Controller
         $newRestaurant->fill($data);
         $newRestaurant->user_id = Auth::user()->id;
         $newRestaurant->save();
-        $newRestaurant->categories()->attach([$data['category_id']]);
+        $newRestaurant->categories()->sync([$data['category_id']]);
         return redirect()->route('admin.restaurants.index');
     }
 
