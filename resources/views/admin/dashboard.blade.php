@@ -16,8 +16,16 @@
 
 						{{ __('You are logged in!') }} <br>
 
-						<h2>Il tuo ristorante :</h2>
-						<h1>{{ Auth::user()->restaurant->name }}</h1>
+						@if (isset(Auth::user()->restaurant->name))
+							<h2>Il tuo ristorante :</h2>
+							<h1>{{ Auth::user()->restaurant->name }}</h1>
+						@else
+							<h2>
+								<a href="{{ route('admin.restaurants.create') }}">
+									Crea ristorante!
+								</a>
+							</h2>
+						@endif
 					</div>
 				</div>
 			</div>
