@@ -16,11 +16,11 @@
 
                 @if (Str::startsWith($restaurant->img, 'http'))
                     <div class="w-100">
-                        <img src="{{ $restaurant->img }}" alt="" class="w-100">
+                        <img src="{{ $restaurant->img }}" alt="" class="w-50">
                     </div>
                 @else
                     <div>
-                        <img src="{{ asset('storage/' . $restaurant->img) }}" alt="img" class="w-100">
+                        <img src="{{ asset('storage/' . $restaurant->img) }}" alt="img" class="w-50">
                     </div>
                 @endif
 
