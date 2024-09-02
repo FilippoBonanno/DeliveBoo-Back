@@ -17,7 +17,8 @@
 			@endif
 		</div>
 
-		<form method="POST" action="{{ route('admin.restaurants.store') }}" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('admin.dishes.update', $dish) }}" enctype="multipart/form-data">
+			@method('PUT')
 			@csrf
 
 			<div class="mb-3">
@@ -31,7 +32,7 @@
 
 			<div class="mb-3">
 				<label for="price" class="form-label">Prezzo</label>
-				<input type="text" class="form-control" name="price" value="{{ $dish->price }}€" required>
+				<input type="number" class="form-control" name="price" value="{{ $dish->price }}" required>
 				@error('price')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
@@ -47,9 +48,20 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="img" class="form-label"></label>
+				<label for="img" class="form-label">Immagine</label>
 				<input type="file" class="form-control" name="img" value="{{ $dish->img }}" required>
 				@error('img')
+					<div class="form-text text-danger">{{ $message }}</div>
+				@enderror
+			</div>
+
+			<div class="mb-3">
+				<label for="visibility" class="form-label">Visibilità</label>
+				<select name="visibility">
+					<option value="1">Sì</option>
+					<option value="0">No</option>
+				</select>
+				@error('visibility')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
 			</div>

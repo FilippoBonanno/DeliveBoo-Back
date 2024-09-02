@@ -116,7 +116,6 @@ class DishController extends Controller
         $data = $request->validate([
             'name' => "required|min:1|max:255",
             'price' => "required",
-            'restaurant_id' => "required",
             'description' => "required|min:1|max:255",
             'img' => "required|image",
             'visibility' => "required",
