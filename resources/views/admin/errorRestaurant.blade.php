@@ -20,8 +20,6 @@
 							</div>
 						@endif
 
-						{{ __('You are logged in!') }} <br>
-
 						<h2>Il tuo ristorante :</h2>
 						<h1>{{ Auth::user()->restaurant->name }}</h1>
 					</div>
