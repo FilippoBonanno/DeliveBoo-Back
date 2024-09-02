@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -39,11 +40,10 @@ class DishController extends Controller
     {
         $data = $request->validate([
             'name' => "required|min:1|max:255", 
-            'price' => "required", 
-            'restaurant_id' => "required", 
+            'price' => "required",  
             'description' => "required|min:1|max:255", 
             'img' => "required|image", 
-            'visibility' => "required",
+            // 'visibility' => "required",
         ]);
 
         if($request->has('img')) {
@@ -51,10 +51,12 @@ class DishController extends Controller
             $data['img'] = $img_path;
         }
 
+        
         $newDish = new Dish();
         $newDish->fill($data);
+        dd($newDish->restaurant_id = Auth::user()->restaurant->id);
         $newDish->save();
-
+        
         return redirect()->route('admin.dishes.show', $newDish);
     }
 
