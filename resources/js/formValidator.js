@@ -6,13 +6,21 @@ let alfanumerici = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567
 registrati_cta.addEventListener('click', function () {
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    let password_confirm = document.getElementById('password_confirm');
-    let form = document.getElementById('user_register_form');
+    let password_confirmation = document.getElementById('password_confirmation');
 
     //validazione mail
     if(emailChecker(email.value)){
-        console.log(email.value)
+        console.log(email.value + ' è valida!');
+    }else{
+        console.log('email non valida');
     };
+
+    //password 
+    if(password.value === password_confirmation.value){
+        console.log('password valida');
+    }else{
+        console.log('password diverse!');
+    }
 
 })
 
