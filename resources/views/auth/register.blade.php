@@ -17,7 +17,7 @@
 								<div class="col-md-6">
 									<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
 										value="{{ old('name') }}" required autocomplete="name" autofocus>
-
+										
 									@error('name')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
 							<div class="mb-4 row">
 								<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}*</label>
 
-								<div class="col-md-6">
+								<div class="col-md-6" id="emailField">
 									<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
 										value="{{ old('email') }}" required autocomplete="email">
 
@@ -38,13 +38,16 @@
 											<strong>{{ $message }}</strong>
 										</span>
 									@enderror
+									<span class="errorClientMessage">
+										<strong></strong>
+									</span>
 								</div>
 							</div>
 
 							<div class="mb-4 row">
 								<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}*</label>
 
-								<div class="col-md-6">
+								<div class="col-md-6" id="passwordField">
 									<input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
 										name="password" required autocomplete="new-password">
 
@@ -53,6 +56,9 @@
 											<strong>{{ $message }}</strong>
 										</span>
 									@enderror
+									<span class="errorClientMessage">
+										<strong></strong>
+									</span>
 								</div>
 							</div>
 
@@ -123,7 +129,7 @@
 
 							<div class="mb-3">
 								<label for="img" class="form-label mt-3">Select Image</label>
-								<input type="file" class="form-control" name="img" value="{{ old('img') }}" required>
+								<input type="file" class="form-control" name="img" value="{{ old('img') }}" required accept=".png, .jpg, .jpeg">
 								@error('img')
 									<div class="form-text text-danger">{{ $message }}</div>
 								@enderror

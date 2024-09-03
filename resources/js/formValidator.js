@@ -1,25 +1,23 @@
-let registrati_cta = document.getElementById('registrati_cta');
+let registerForm = document.getElementById('user_register_form');
+let email = document.getElementById('email');
+let password = document.getElementById('password');
+let password_confirmation = document.getElementById('password_confirmation');
 
 // Caratteri alfanumerici
 let alfanumerici = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-registrati_cta.addEventListener('click', function () {
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
-    let password_confirmation = document.getElementById('password_confirmation');
+registerForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    //validazione mail
-    if(emailChecker(email.value)){
-        console.log(email.value + ' è valida!');
-    }else{
-        console.log('email non valida');
-    };
+    //validazione email
+    if(!emailChecker(email.value)){
+        return false;
+    }
 
     //password 
-    if(password.value === password_confirmation.value){
-        console.log('password valida');
-    }else{
-        console.log('password diverse!');
+    if(password.value !== password_confirmation.value){
+        alert('Le due password non combaciano!');
+        return false
     }
 
 })
