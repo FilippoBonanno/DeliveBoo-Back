@@ -31,7 +31,7 @@
 
 			<div class="mb-3">
 				<label for="price" class="form-label">Prezzo</label>
-				<input type="text" class="form-control" name="price" value="{{ old('price') }}" required>
+				<input type="number" class="form-control" name="price" value="{{ old('price') }}" required step='0.01' min="0.1" max="999.99">
 				@error('price')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
@@ -39,8 +39,8 @@
 
 			<div class="mb-3">
 				<label for="description" class="form-label">Descrizione</label>
-				<input type="text" class="form-control" name="description" value="{{ old('descriprion') }}" min="4"
-					max="255" required>
+				<input type="text" class="form-control" name="description" value="{{ old('descriprion') }}" min="20"
+					max="1000" required>
 				@error('description')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
@@ -48,7 +48,7 @@
 
 			<div class="mb-3">
 				<label for="img" class="form-label"></label>
-				<input type="file" class="form-control" name="img" value="{{ old('img') }}" required>
+				<input type="file" class="form-control" name="img" value="{{ old('img') }}" required accept=".png, .jpg, .jpeg">
 				@error('img')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror

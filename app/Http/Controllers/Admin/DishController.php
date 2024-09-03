@@ -57,9 +57,9 @@ class DishController extends Controller
         if (isset(auth()->user()->restaurant)) {
             $data = $request->validate([
                 'name' => "required|min:1|max:255",
-                'price' => "required",
-                'description' => "required|min:1|max:255",
-                'img' => "required|image",
+                'price' => "required|numeric|decimal:2|min:0.1|max:999.99",
+                'description' => "required|min:20|max:1000",
+                'img' => "required|image",  /* max da aggiungere successivamente*/
                 // 'visibility' => "required",
             ]);
 
@@ -125,9 +125,9 @@ class DishController extends Controller
     {
         $data = $request->validate([
             'name' => "required|min:1|max:255",
-            'price' => "required",
-            'description' => "required|min:1|max:255",
-            'img' => "required|image",
+            'price' => "required|numeric|decimal:2|min:0.1|max:999.99",
+            'description' => "required|min:20|max:1000",
+            'img' => "required|image",   /* max da aggiungere successivamente*/
             'visibility' => "required",
         ]);
 

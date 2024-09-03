@@ -49,8 +49,8 @@ class RestaurantController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'tax_id' => 'required|string|max:255',
-            'category_id' => 'required',
-            'category_id.*' => 'numeric|integer',
+            'category_id' => 'required|array',
+            'category_id.*' => 'required|numeric|integer|exists:categories,id',
             'img' => 'required|image',
         ]);
 
