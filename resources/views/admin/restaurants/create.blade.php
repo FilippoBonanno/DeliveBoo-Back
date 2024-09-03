@@ -49,7 +49,7 @@
 
 			<div class="mb-3">
 				<label for="img" class="form-label"></label>
-				<input type="file" class="form-control" name="img" value="{{ old('img') }}" required>
+				<input type="file" class="form-control" name="img" value="{{ old('img') }}" required accept=".png, .jpg, .jpeg">
 				@error('img')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
