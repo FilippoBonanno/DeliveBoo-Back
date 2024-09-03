@@ -8,7 +8,7 @@
                 <div>
                     <a href="{{ route('admin.dishes.show', $dish) }}">{{ $dish->name }}</a>
                 </div>
-                <h4>Address</h4>
+                <h4>Price</h4>
                 <div>
                     {{ $dish->price }}
                 </div>
@@ -22,7 +22,7 @@
                         <img src="{{ asset('storage/' . $dish->img) }}" alt="img" class="w-50">
                     </div>
                 @endif
-                <h4>Tax Id</h4>
+                <h4>Description</h4>
                 <div>
                     {{ $dish->description }}
                 </div>
@@ -31,13 +31,51 @@
                     {{ $dish->restaurant->name }}
                 </div>
                 <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-primary">Edit</a>
-				<form method="POST" action="{{ route('admin.dishes.destroy', $dish) }}">
-					@csrf
-	
-					@method('DELETE')
-					<button type="submit" href="" class="btn btn-outline-danger my-3">Elimina Piatto</button>
-				</form>
+                <button type="button" class="btn btn-outline-danger my-3" data-toggle="modal" data-target="#confirmModal" data-action="{{ route('admin.dishes.destroy', $dish) }}">Elimina Piatto</button>
             </div>
         @endforeach
     </div>
+
+  <!-- Modale di conferma -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Conferma Eliminazione</h5>
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler eliminare questo piatto?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                <form id="confirmDeleteForm" method="POST" action="">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Elimina</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Seleziona tutti i bottoni di eliminazione
+    const deleteButtons = document.querySelectorAll('button[data-action]');
+    
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Ottieni l'azione del form dalla proprietà data-action del bottone
+            const action = this.getAttribute('data-action');
+            // Imposta l'azione del form nella modale
+            document.getElementById('confirmDeleteForm').action = action;
+            // Mostra la modale
+            $('#confirmModal').modal('show');
+        });
+    });
+});
+
+</script>
+
 @endsection
