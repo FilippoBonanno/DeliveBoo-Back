@@ -9,6 +9,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $user = auth()->user();
+        if ($user->restaurant) {
+            $data = [
+                "restaurant" => $user->restaurant
+            ];
+        } else {
+            $data = [];
+        }
+        return view('admin.dashboard', $data);
     }
 }
