@@ -36,6 +36,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $validated = 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -50,9 +51,9 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
         ]);
 
 
@@ -61,20 +62,18 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         // Creo un nuovo ristorante dopo che l'utente e' loggato
-        $img = Storage::put('uploads', $request['restaurant_img']);
-        $request['restaurant_img'] = $img;  //salvo il percorso
+        $img = Storage::put('uploads', $validated['restaurant_img']);
+        $validated['restaurant_img'] = $img;  //salvo il percorso
 
         $newRestaurant = new Restaurant();
-        $newRestaurant->name = $request->restaurant_name;
-        $newRestaurant->address = $request->restaurant_address;
-        $newRestaurant->tax_id = $request->restaurant_tax_id;
-        $newRestaurant->img = $request['restaurant_img'];
+        $newRestaurant->name = $validated['restaurant_name'];
+        $newRestaurant->address = $validated['restaurant_address'];
+        $newRestaurant->tax_id = $validated['restaurant_tax_id'];
+        $newRestaurant->img = $validated['restaurant_img'];
         $newRestaurant->user_id = Auth::user()->id;
         $newRestaurant->save();
-        $newRestaurant->categories()->sync($request->category_id);
-
-
-
+        $newRestaurant->categories()->sync($validated['category_id']);
+        
         return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -44,6 +44,7 @@ registerForm.addEventListener('submit', function (event) {
         errore = true;
     }
 
+    //Se ci sono errori allora non far inviare il form
     if(errore){
         event.preventDefault();
     }
