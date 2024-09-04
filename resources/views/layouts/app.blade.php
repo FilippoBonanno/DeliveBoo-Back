@@ -28,7 +28,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel" style="height:5rem">
-                        <img src="https://cdn.discordapp.com/attachments/1229384550438932540/1280457103559098402/bd6561717d744123a28302ec0a3f86c4-free-removebg-preview.png?ex=66d8261b&is=66d6d49b&hm=c3eb570dbd069da3ac3963ccf6a781662190434e8a7a01aaa74aead7ed85f9da&" alt="" style="height:5rem">
+                        <img src="" alt="" style="height:5rem">
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
