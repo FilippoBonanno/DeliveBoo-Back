@@ -9,7 +9,7 @@ let errorClientMessage = document.querySelectorAll('.errorClientMessage');
 
 //errors
 let emailError = 'Email non valida esempio: esempio@esempio.com';
-let passwordError = 'Le due password non sono uguali!';
+let passwordError = 'Le due password non sono uguali o non hanno almeno 8 caratteri!';
 let taxidError = 'La P.iva inserita non è valida!';
 let restaurantAddressError = "L'indirizzo non è valido!";
 let categoryError = 'Devi selezionare almeno una categoria!';
@@ -71,9 +71,6 @@ registerForm.addEventListener('submit', function (event) {
         categories[categories.length - 1].insertAdjacentHTML('afterend', `<div class="errorClientMessage text-danger" role="alert">
 										${categoryError}
 							</div>`);
-        categories.forEach((element) => {
-            element.checked = false;
-        })
         errori = true;
     }
 
@@ -116,6 +113,9 @@ function emailValidator(email) {
 }
 
 function passwordValidator(password, check) {
+    if(password.length<8 || check.length<8){
+        return false;
+    }
     return password === check;
 }
 
@@ -174,5 +174,7 @@ function resetErrors() {
     email.style.border = '';
     password.style.border = '';
     password_confirmation.style.border = '';
+    tax_id.style.border = '';
+    restaurantAddress.style.border = '';
     errori = false;
 }
