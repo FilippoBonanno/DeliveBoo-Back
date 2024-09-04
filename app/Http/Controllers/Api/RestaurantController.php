@@ -8,9 +8,26 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $restaurants =  Restaurant::with('categories')->get();
+        // Recupero la categoria dalla Qery
+        $categories = $request->query('categories');
+
+        // Recupero tutti i ristoranti dal DB e le relative cateogorie e ristoratori
+        $restaurants = Restaurant::with(['dishes', 'user', 'categories']);
+
+        // 2. Filtro per categorie, se presente con funzione di CallBack (la funzione whereHas() si aspetta una funzione callback come secondo argomento)
+        if (!empty($categories)) {
+            foreach ($categories as $category) {
+                $restaurants->whereHas('categories', function ($q) use ($category) {
+                    $q->where('name', $category);
+                });
+            }
+        }
+
+        // Esegui la query e restituisci i risultati
+        $restaurants = $restaurants->get();
+
         return response()->json($restaurants);
     }
 
