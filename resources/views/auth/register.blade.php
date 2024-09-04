@@ -66,7 +66,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}*</label>
 
                                 <div class="col-md-6">
-                                    <input id="password_confirmation" type="password" class="form-control"
+                                    <input type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password"
                                         value="{{ old('password_confirmation') }}">
                                 </div>
@@ -77,7 +77,7 @@
                                     Ristorante*</label>
 
                                 <div class="col-md-6">
-                                    <input id="restaurant_name" type="text"
+                                    <input type="text"
                                         class="form-control @error('restaurant_name') is-invalid @enderror"
                                         name="restaurant_name" value="{{ old('restaurant_name') }}" required>
 
@@ -95,7 +95,7 @@
                                 </label>
 
                                 <div class="col-md-6">
-                                    <input id="restaurant_address" type="text"
+                                    <input type="text"
                                         class="form-control @error('restaurant_address') is-invalid @enderror"
                                         name="restaurant_address" value="{{ old('restaurant_address') }}" required>
 
@@ -112,7 +112,7 @@
                                     Iva*</label>
 
                                 <div class="col-md-6">
-                                    <input id="restaurant_tax_id" type="text"
+                                    <input type="text"
                                         class="form-control @error('restaurant_tax_id') is-invalid @enderror"
                                         name="restaurant_tax_id" value="{{ old('restaurant_tax_id') }}" required>
 
@@ -129,7 +129,7 @@
 
                                 <div class="col-md-6">
                                     @foreach ($categories as $item)
-                                        <label for="category_id[]" class="form-label">{{ $item->name }}</label>
+                                        <label for="category_id" class="form-label">{{ $item->name }}</label>
                                         <input type="checkbox"
                                             class="form-check-input @error('restaurant_tax_id') is-invalid @enderror"
                                             name="category_id[]" value="{{ $item->id }}">
