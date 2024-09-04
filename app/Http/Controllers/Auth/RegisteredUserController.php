@@ -45,7 +45,7 @@ class RegisteredUserController extends Controller
             'restaurant_name' => ['required', 'string', 'max:255'],
             'restaurant_address' => ['required', 'string', 'max:255'],
             'restaurant_tax_id' => ['required', 'string', 'max:255'],
-            'category_id' => ['required', 'array'],
+            'category_id' => ['required','array'],
             'category_id.*' => ['required', 'numeric', 'integer', 'exists:categories,id'],
             'restaurant_img' => ['image']
         ]);
@@ -73,7 +73,7 @@ class RegisteredUserController extends Controller
         $newRestaurant->user_id = Auth::user()->id;
         $newRestaurant->save();
         $newRestaurant->categories()->sync($validated['category_id']);
-        
+
         return redirect(RouteServiceProvider::HOME);
     }
 }

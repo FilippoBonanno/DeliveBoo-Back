@@ -4,12 +4,13 @@ let password = document.querySelector('[name=password]');
 let password_confirmation = document.querySelector('[name=password_confirmation]');
 let errorClientMessage = document.querySelectorAll('.errorClientMessage');
 //errors
-let emailError = 'Email non valida esempio: example@example.com';
+let emailError = 'Email non valida esempio: esempio@esempio.com';
 let passwordNotMatch = 'Le due password non sono uguali!';
 let errore = false;
 
-// Caratteri alfanumerici
+// Caratteri alfanumerici e numeri
 let alfanumerici = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+let numbers = '1234567890'
 
 registerForm.addEventListener('submit', function (event) {
     //reset
@@ -25,20 +26,20 @@ registerForm.addEventListener('submit', function (event) {
     //validazione email
     if(!emailChecker(email.value)){
         email.style.border = 'red solid 1px'
-        email.insertAdjacentHTML('afterend',`<span class="errorClientMessage">
-										<strong>&#x2022 ${emailError}</strong>
-							</span>`);
+        email.insertAdjacentHTML('afterend',`<div class="errorClientMessage text-danger" role="alert">
+										${emailError}
+							</div>`);
         email.value = '';
         errore = true;
     }
 
     //password 
-    if(password.value !== password_confirmation.value){
+    if(passwordMatcher(password.value,password_confirmation.value)){
         password.style.border = 'red solid 1px';
         password_confirmation.style.border = 'red solid 1px';
-        password.insertAdjacentHTML('afterend',`<span class="errorClientMessage">
-										<strong>&#x2022 ${passwordNotMatch}</strong>
-							</span>`);
+        password.insertAdjacentHTML('afterend',`<div class="errorClientMessage text-danger" role="alert">
+										${passwordNotMatch}
+							</div>`);
         password_confirmation.value = '';
         password.value = '';
         errore = true;
@@ -82,4 +83,23 @@ function emailChecker(email) {
     // Se tutti i controlli passano, l'email è valida
     return true
     
+}
+
+function passwordMatcher(password,check){
+    return password === check;
+}
+
+function taxIdValidator(value){
+    // Controlla che la stringa value sia lunga 11 caratteri
+    if(value.length!=11){
+        return false
+    }
+    // Cicla su tutti i caratteri di value
+    for(let i = 0; i<11; i++){
+        //Se il carattere in posizione i non è un numero allora ritorna falso
+        if(!numbers.includes(value[i])){
+            return false
+        }
+    }
+    return true
 }

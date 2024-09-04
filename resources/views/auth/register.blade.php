@@ -22,9 +22,9 @@
                                         name="name" value="{{ old('name') }}" required autocomplete="name">
 
                                     @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="text-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -38,9 +38,9 @@
                                         name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="text-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -54,9 +54,9 @@
                                         name="password" required autocomplete="new-password" value="{{ old('password') }}">
 
                                     @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="text-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -82,9 +82,9 @@
                                         name="restaurant_name" value="{{ old('restaurant_name') }}" required>
 
                                     @error('restaurant_name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="text-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -100,9 +100,9 @@
                                         name="restaurant_address" value="{{ old('restaurant_address') }}" required>
 
                                     @error('restaurant_address')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="text-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -117,9 +117,9 @@
                                         name="restaurant_tax_id" value="{{ old('restaurant_tax_id') }}" required>
 
                                     @error('restaurant_tax_id')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                        <div class="text-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
                             </div>
@@ -130,13 +130,14 @@
                                 <div class="col-md-6">
                                     @foreach ($categories as $item)
                                         <label for="category_id[]" class="form-label">{{ $item->name }}</label>
-                                        <input type="checkbox" class="form-check-input" name="category_id[]"
-                                            value="{{ $item->id }}">
+                                        <input type="checkbox"
+                                            class="form-check-input @error('restaurant_tax_id') is-invalid @enderror"
+                                            name="category_id[]" value="{{ $item->id }}">
                                     @endforeach
-                                    @error('category_id[]')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                    @error('category_id')
+                                        <div class="text-danger" role="alert">
+                                            {{ $message }}
+                                        </div>
                                     @enderror
                                 </div>
 
