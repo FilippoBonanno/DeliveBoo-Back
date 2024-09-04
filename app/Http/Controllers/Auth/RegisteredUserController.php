@@ -61,14 +61,14 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         // Creo un nuovo ristorante dopo che l'utente e' loggato
-        $img = Storage::put('uploads', $request['img']);
-        $request['img'] = $img;  //salvo il percorso
+        $img = Storage::put('uploads', $request['restaurant_img']);
+        $request['restaurant_img'] = $img;  //salvo il percorso
 
         $newRestaurant = new Restaurant();
         $newRestaurant->name = $request->restaurant_name;
         $newRestaurant->address = $request->restaurant_address;
         $newRestaurant->tax_id = $request->restaurant_tax_id;
-        $newRestaurant->img = $request['img'];
+        $newRestaurant->img = $request['restaurant_img'];
         $newRestaurant->user_id = Auth::user()->id;
         $newRestaurant->save();
         $newRestaurant->categories()->sync($request->category_id);

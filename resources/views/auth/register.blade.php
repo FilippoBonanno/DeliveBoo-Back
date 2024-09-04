@@ -17,7 +17,7 @@
 
 								<div class="col-md-6">
 									<input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-										value="{{ old('name') }}" required autocomplete="name" autofocus>
+										value="{{ old('name') }}" required autocomplete="name">
 										
 									@error('name')
 										<span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
 
 								<div class="col-md-6">
 									<input type="password" class="form-control @error('password') is-invalid @enderror"
-										name="password" required autocomplete="new-password">
+										name="password" required autocomplete="new-password" value="{{ old('password') }}">
 
 									@error('password')
 										<span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
 
 								<div class="col-md-6">
 									<input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required
-										autocomplete="new-password">
+										autocomplete="new-password" value="{{ old('password_confirmation') }}">
 								</div>
 							</div>
 
