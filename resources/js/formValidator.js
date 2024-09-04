@@ -1,23 +1,51 @@
 let registerForm = document.getElementById('user_register_form');
-let email = document.getElementById('email');
-let password = document.getElementById('password');
-let password_confirmation = document.getElementById('password_confirmation');
+let email = document.querySelector('[name=email]');
+let password = document.querySelector('[name=password]');
+let password_confirmation = document.querySelector('[name=password_confirmation]');
+let errorClientMessage = document.querySelectorAll('.errorClientMessage');
+//errors
+let emailError = 'Email non valida esempio: example@example.com';
+let passwordNotMatch = 'Le due password non sono uguali!';
+let errore = false;
 
 // Caratteri alfanumerici
 let alfanumerici = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 registerForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+    //reset
+    errorClientMessage = document.querySelectorAll('.errorClientMessage');
+    errorClientMessage.forEach((element) => {
+        element.remove();
+    })
+    email.style.border = '';
+    password.style.border = '';
+    password_confirmation.style.border = '';
+    errore = false;
 
     //validazione email
     if(!emailChecker(email.value)){
-        return false;
+        email.style.border = 'red solid 1px'
+        email.insertAdjacentHTML('afterend',`<span class="errorClientMessage">
+										<strong>&#x2022 ${emailError}</strong>
+							</span>`);
+        email.value = '';
+        errore = true;
     }
 
     //password 
     if(password.value !== password_confirmation.value){
-        alert('Le due password non combaciano!');
-        return false
+        password.style.border = 'red solid 1px';
+        password_confirmation.style.border = 'red solid 1px';
+        password.insertAdjacentHTML('afterend',`<span class="errorClientMessage">
+										<strong>&#x2022 ${passwordNotMatch}</strong>
+							</span>`);
+        password_confirmation.value = '';
+        password.value = '';
+        errore = true;
+    }
+
+    if(errore){
+        event.preventDefault();
     }
 
 })

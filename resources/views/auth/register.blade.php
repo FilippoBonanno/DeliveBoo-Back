@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+	@vite(['resources/js/formValidator.js'])
 	<div class="container mt-4">
 		<div class="row justify-content-center">
 			<div class="col-md-8">
@@ -15,7 +16,7 @@
 								<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}*</label>
 
 								<div class="col-md-6">
-									<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+									<input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
 										value="{{ old('name') }}" required autocomplete="name" autofocus>
 										
 									@error('name')
@@ -29,8 +30,8 @@
 							<div class="mb-4 row">
 								<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}*</label>
 
-								<div class="col-md-6" id="emailField">
-									<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+								<div class="col-md-6">
+									<input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
 										value="{{ old('email') }}" required autocomplete="email">
 
 									@error('email')
@@ -38,17 +39,14 @@
 											<strong>{{ $message }}</strong>
 										</span>
 									@enderror
-									<span class="errorClientMessage">
-										<strong></strong>
-									</span>
 								</div>
 							</div>
 
 							<div class="mb-4 row">
 								<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}*</label>
 
-								<div class="col-md-6" id="passwordField">
-									<input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+								<div class="col-md-6">
+									<input type="password" class="form-control @error('password') is-invalid @enderror"
 										name="password" required autocomplete="new-password">
 
 									@error('password')
@@ -56,9 +54,6 @@
 											<strong>{{ $message }}</strong>
 										</span>
 									@enderror
-									<span class="errorClientMessage">
-										<strong></strong>
-									</span>
 								</div>
 							</div>
 
@@ -77,7 +72,7 @@
 
 								<div class="col-md-6">
 									<input id="restaurant_name" type="text" class="form-control @error('restaurant_name') is-invalid @enderror"
-										name="restaurant_name" value="{{ old('restaurant_name') }}" required autofocus>
+										name="restaurant_name" value="{{ old('restaurant_name') }}" required>
 
 									@error('restaurant_name')
 										<span class="invalid-feedback" role="alert">
@@ -94,7 +89,7 @@
 								<div class="col-md-6">
 									<input id="restaurant_address" type="text"
 										class="form-control @error('restaurant_address') is-invalid @enderror" name="restaurant_address"
-										value="{{ old('restaurant_address') }}" required autofocus>
+										value="{{ old('restaurant_address') }}" required>
 
 									@error('restaurant_address')
 										<span class="invalid-feedback" role="alert">
@@ -110,7 +105,7 @@
 								<div class="col-md-6">
 									<input id="restaurant_tax_id" type="text"
 										class="form-control @error('restaurant_tax_id') is-invalid @enderror" name="restaurant_tax_id"
-										value="{{ old('restaurant_tax_id') }}" required autofocus>
+										value="{{ old('restaurant_tax_id') }}" required>
 
 									@error('restaurant_tax_id')
 										<span class="invalid-feedback" role="alert">
@@ -128,9 +123,9 @@
 							</div>
 
 							<div class="mb-3">
-								<label for="img" class="form-label mt-3">Select Image</label>
-								<input type="file" class="form-control" name="img" value="{{ old('img') }}" required accept=".png, .jpg, .jpeg">
-								@error('img')
+								<label for="restaurant_img" class="form-label mt-3">Select Image</label>
+								<input type="file" class="form-control" name="restaurant_img" required accept=".png, .jpg, .jpeg">
+								@error('restaurant_img')
 									<div class="form-text text-danger">{{ $message }}</div>
 								@enderror
 							</div>
