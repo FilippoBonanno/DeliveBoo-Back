@@ -22,7 +22,6 @@ let numbers = '1234567890'
 registerForm.addEventListener('submit', function (event) {
     //reset
     resetErrors();
-    event.preventDefault();
 
     //validazione email
     if (!emailValidator(email.value)) {
@@ -75,7 +74,9 @@ registerForm.addEventListener('submit', function (event) {
     }
 
     //Se ci sono errori allora non far inviare il form
-    return !errori;
+    if(errori){
+        event.preventDefault();
+    }
 
 })
 
@@ -158,11 +159,11 @@ function addressValidator(address) {
 }
 
 function categoryValidator(categoryArray) {
-    categoryArray.forEach((element) => {
-        if (element.checked) {
+    for(let i = 0; i<categoryArray.length; i++){
+        if(categoryArray[i].checked){
             return true;
         }
-    })
+    }
     return false;
 }
 
