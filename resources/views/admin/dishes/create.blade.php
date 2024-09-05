@@ -39,8 +39,7 @@
 
 			<div class="mb-3">
 				<label for="description" class="form-label">Descrizione</label>
-				<input type="text" class="form-control" name="description" value="{{ old('descriprion') }}" min="20"
-					max="1000" required>
+				<textarea class="form-control" name="description" rows="3" required minlength="20" maxlength="1000">{{ old('description')}}</textarea>
 				@error('description')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
