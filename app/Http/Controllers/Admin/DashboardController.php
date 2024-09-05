@@ -10,13 +10,24 @@ class DashboardController extends Controller
     public function index()
     {
         $user = auth()->user();
+
+        $data = [];
+        
         if ($user->restaurant) {
-            $data = [
-                "restaurant" => $user->restaurant
-            ];
-        } else {
-            $data = [];
+            // Se ha un ristorante, controlla se ha dei piatti
+            if ($user->restaurant->dishes->isNotEmpty()) {
+                $dishList = auth()->user()->restaurant->dish;
+                $data = [
+                    "restaurant" => $user->restaurant,
+                    "dishes" => $dishList,
+                ];
+            } else {
+                $data = [
+                    "restaurant" => $user->restaurant,
+                    "dishes" => [],
+                ];
+            }
+            return view('admin.dashboard', $data);
         }
-        return view('admin.dashboard', $data);
     }
 }
