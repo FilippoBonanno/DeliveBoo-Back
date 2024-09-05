@@ -75,7 +75,7 @@ class DishController extends Controller
             $newDish->visibility = true;
             $newDish->save();
 
-            return redirect()->route('admin.dishes.show', $newDish);
+            return redirect()->route('admin.dashboard', $newDish);
         } else {
             abort(403, 'come ci sei arrivato?');
         }

@@ -55,6 +55,7 @@
 						@endif
 
 						{{-- lista piatti --}}
+						@if($dishes !== [])
 						<div class="text-center px-2 row m-0">
 							@foreach ($dishes as $dish)
 								<div class="col-4 mt-3 border border-primary">
@@ -135,6 +136,11 @@
 								});
 							});
 						</script>
+						@else
+							<div class="alert alert-danger mt-3" role="alert">
+								Non hai nessun piatto!
+							</div>
+						@endif
 					</div>
 				</div>
 			</div>
