@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+	@vite(['resources/js/dishFormValidator.js'])
 	<div class="container">
 		<h1 class="text-center py-2">Aggiungi un Nuovo Piatto</h1>
 
@@ -17,11 +18,11 @@
 			@endif
 		</div>
 
-		<form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data" id="storeDish">
 			@csrf
 
 			<div class="mb-3">
-				<label for="name" class="form-label">Nome del Piatto</label>
+				<label for="name" class="form-label">Nome del Piatto*</label>
 				<input type="text" class="form-control" name="name" value="{{ old('name') }}" min="4" max="255"
 					required>
 				@error('name')
@@ -30,7 +31,7 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="price" class="form-label">Prezzo</label>
+				<label for="price" class="form-label">Prezzo*</label>
 				<input type="number" class="form-control" name="price" value="{{ old('price') }}" required step='0.01' min="0.1" max="999.99">
 				@error('price')
 					<div class="form-text text-danger">{{ $message }}</div>
@@ -38,7 +39,7 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="description" class="form-label">Descrizione</label>
+				<label for="description" class="form-label">Descrizione*</label>
 				<textarea class="form-control" name="description" rows="3" required minlength="20" maxlength="1000">{{ old('description')}}</textarea>
 				@error('description')
 					<div class="form-text text-danger">{{ $message }}</div>
@@ -46,7 +47,7 @@
 			</div>
 
 			<div class="mb-3">
-				<label for="img" class="form-label"></label>
+				<label for="img" class="form-label">Immagine*</label>
 				<input type="file" class="form-control" name="img" value="{{ old('img') }}" required accept=".png, .jpg, .jpeg">
 				@error('img')
 					<div class="form-text text-danger">{{ $message }}</div>

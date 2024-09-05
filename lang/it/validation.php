@@ -136,6 +136,7 @@ return [
     'uploaded' => 'Il caricamento del campo :attribute è fallito.',
     'url' => 'Il formato del campo :attribute non è valido.',
     'uuid' => 'Il campo :attribute deve essere un UUID valido.',
+    'decimal' => 'Il campo :attribute deve avere numeri decimali',
 
     /*
     |--------------------------------------------------------------------------
@@ -151,6 +152,7 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'messaggio-personalizzato',
+            'price-name' => 'Devi mettere i valori decimali es: 10,99'
         ],
     ],
 
@@ -165,6 +167,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'price' => 'Prezzo',
+        'name' => 'Nome',
+        'description' => 'Descrizione',
+        'img' => 'Immagine',
+        'restaurant_img' => 'Immagine Ristorante'
+    ],
 
 ];
