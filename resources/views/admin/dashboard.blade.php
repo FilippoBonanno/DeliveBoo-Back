@@ -34,9 +34,12 @@
 										<div class="card-body">
 											<p class="card-text"><b>Nome Ristorante:</b> {{ $restaurant->name }}</p>
 											<p class="card-text"><b>Indirizzo Ristorante:</b> {{ $restaurant->address }}</p>
-											<p class="card-text"><b>Categorie</b>
+											<p class="card-text"><b>Categorie:</b>
 												@foreach ($restaurant->categories as $category)
-													{{ $category->name }} -
+													{{ $category->name }} 
+													@if($loop->index+1 != count($restaurant->categories))
+														-
+													@endif
 												@endforeach
 											</p>
 										</div>

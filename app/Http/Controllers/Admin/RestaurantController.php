@@ -27,17 +27,17 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        $data = [
-            'categories' => Category::all()
-        ];
-        if (auth()->user()->restaurant) {
-            $data = [
-                'status' => 'You can create only 1 restaurant!',
-            ];
-            return view('admin.errorPage', $data);
-        } else {
-            return view('admin.restaurants.create', $data);
-        }
+        // $data = [
+        //     'categories' => Category::all()
+        // ];
+        // if (auth()->user()->restaurant) {
+        //     $data = [
+        //         'status' => 'You can create only 1 restaurant!',
+        //     ];
+        //     return view('admin.errorPage', $data);
+        // } else {
+        //     return view('admin.restaurants.create', $data);
+        // }
     }
 
     /**
@@ -45,26 +45,26 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'tax_id' => 'required|string|max:255',
-            'category_id' => 'required|array',
-            'category_id.*' => 'required|numeric|integer|exists:categories,id',
-            'img' => 'required|image',
-        ]);
+        // $data = $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'address' => 'required|string|max:255',
+        //     'tax_id' => 'required|string|max:255',
+        //     'category_id' => 'required|array',
+        //     'category_id.*' => 'required|numeric|integer|exists:categories,id',
+        //     'img' => 'required|image',
+        // ]);
 
 
-        $img = Storage::put('uploads', $data['img']);
-        $data['img'] = $img;  //salva il percorso
+        // $img = Storage::put('uploads', $data['img']);
+        // $data['img'] = $img;  //salva il percorso
 
 
-        $newRestaurant = new Restaurant();
-        $newRestaurant->fill($data);
-        $newRestaurant->user_id = Auth::user()->id;
-        $newRestaurant->save();
-        $newRestaurant->categories()->sync($data['category_id']);
-        return redirect()->route('admin.restaurants.index');
+        // $newRestaurant = new Restaurant();
+        // $newRestaurant->fill($data);
+        // $newRestaurant->user_id = Auth::user()->id;
+        // $newRestaurant->save();
+        // $newRestaurant->categories()->sync($data['category_id']);
+        // return redirect()->route('admin.restaurants.index');
     }
 
     /**
