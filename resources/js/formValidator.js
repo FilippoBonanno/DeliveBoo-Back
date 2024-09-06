@@ -29,7 +29,6 @@ registerForm.addEventListener('submit', function (event) {
         email.insertAdjacentHTML('afterend', `<div class="errorClientMessage text-danger" role="alert">
 										${emailError}
 							</div>`);
-        email.value = '';
         errori = true;
     }
 
@@ -40,8 +39,6 @@ registerForm.addEventListener('submit', function (event) {
         password.insertAdjacentHTML('afterend', `<div class="errorClientMessage text-danger" role="alert">
 										${passwordError}
 							</div>`);
-        password_confirmation.value = '';
-        password.value = '';
         errori = true;
     }
 
@@ -51,7 +48,6 @@ registerForm.addEventListener('submit', function (event) {
         tax_id.insertAdjacentHTML('afterend', `<div class="errorClientMessage text-danger" role="alert">
 										${taxidError}
 							</div>`);
-        tax_id.value = '';
         errori = true;
     }
 
@@ -61,7 +57,6 @@ registerForm.addEventListener('submit', function (event) {
         restaurantAddress.insertAdjacentHTML('afterend', `<div class="errorClientMessage text-danger" role="alert">
 										${restaurantAddressError}
 							</div>`);
-        restaurantAddress.value = '';
         errori = true;
     }
 
