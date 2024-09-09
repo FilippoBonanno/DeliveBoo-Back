@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\RestaurantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +52,10 @@ Route::post('checkout', function (Request $request) {
 
     $nonceFromTheClient = $request->payment_method_nonce;
     $deviceDataFromTheClient = $request->device_data;
+    $uri = 'http://localhost:5174';     // da cambiare a seconda della porta del sito front
 
     $result = $gateway->transaction()->sale([
-        'amount' => '10.00',
+        'amount' => $request->amount,
         'paymentMethodNonce' => $nonceFromTheClient,
         'deviceData' => $deviceDataFromTheClient,
         'options' => [
@@ -61,17 +63,12 @@ Route::post('checkout', function (Request $request) {
         ]
     ]);
 
-    if ($result->success) {
+    if ($result->success || (!is_null($result->transaction))) {
         $transaction = $result->transaction;
-
-        return response()->json([
-            'status' => 'Transaction successful. The ID is:' . $transaction->id,
-        ]);
+        return redirect()->away($uri . '/Checkout/Success');
     } else {
-        return response()->json([
-            'status' => 'fallito',
-            'nonceRicevuto' => $nonceFromTheClient,
-            'deviceData' => $deviceDataFromTheClient
-        ]);
+        return redirect()->away($uri . '/Checkout/Denied');
     }
 });
+
+
