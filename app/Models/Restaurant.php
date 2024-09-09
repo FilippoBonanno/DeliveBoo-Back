@@ -10,7 +10,7 @@ class Restaurant extends Model
 {
     use HasFactory;
 
-    // Aggiungi 'slug' ai campi fillable
+    
     protected $fillable = ['name', 'address', 'img', 'tax_id', 'slug'];
 
     // Genera automaticamente lo slug dal nome
@@ -20,7 +20,7 @@ class Restaurant extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
-    // Usa lo slug per le route invece dell'ID
+    //  slug per le route invece dell'ID
     public function getRouteKeyName()
     {
         return 'slug';

@@ -6,7 +6,8 @@
             <div class="col-4 mt-3 border border-primary">
                 <h4>Name</h4>
                 <div>
-                    <a href="{{ route('admin.restaurants.show', $restaurant) }}">{{ $restaurant->name }}</a>
+                    <a href="{{ route('admin.restaurants.show', $restaurant->slug) }}">{{ $restaurant->name }}</a>
+
                 </div>
                 <h4>Address</h4>
                 <div>

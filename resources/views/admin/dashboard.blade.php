@@ -21,14 +21,15 @@
 							<h1>{{ Auth::user()->restaurant->name }}</h1>
 							<div class="card p-0 h-100">
 								@if (Str::startsWith($restaurant->img, 'http'))
-									<div class="col-4">
-										<img src="{{ $restaurant->img }}" alt="immagine-ristorante" class="w-100 rounded-start">
-									</div>
-								@else
-									<div class="col-4">
-										<img src="{{ asset('storage/' . $restaurant->img) }}" class="w-100 rounded-start" alt="immagine-ristorante">
-									</div>
-								@endif
+    <div class="col-4">
+        <img src="{{ $restaurant->img }}" alt="immagine-ristorante" class="w-100 rounded-start">
+    </div>
+@else
+    <div class="col-4">
+        <img src="{{ asset('storage/' . $restaurant->img) }}" class="w-100 rounded-start" alt="immagine-ristorante">
+    </div>
+@endif
+
 								<div class="row g-0 m-0">
 									<div class="col-12">
 										<div class="card-body">
