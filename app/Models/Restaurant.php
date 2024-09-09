@@ -4,23 +4,32 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Restaurant extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'address', 'img', 'tax_id'];
+    // Aggiungi 'slug' ai campi fillable
+    protected $fillable = ['name', 'address', 'img', 'tax_id', 'slug'];
+
+    // Genera automaticamente lo slug dal nome
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
+    // Usa lo slug per le route invece dell'ID
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function dishes()
     {
         return $this->hasMany(Dish::class);
     }
-
-    /**
-     * Returns the categories associated with the restaurant.
-     *
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
 
     public function categories()
     {
@@ -30,9 +39,5 @@ class Restaurant extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    public function Dish()
-    {
-        return $this->hasMany(Dish::class);
     }
 }
