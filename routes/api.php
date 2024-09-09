@@ -24,3 +24,54 @@ Route::get('restaurants', [RestaurantController::class, 'index']);
 Route::get('restaurants/{id}', [RestaurantController::class, 'show']);
 
 Route::get('categories', [CategoryController::class, 'index']);
+
+//Braintree
+Route::get('token', function () {
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+    ]);
+    // pass $clientToken to your front-end
+    $clientToken = $gateway->clientToken()->generate();
+
+    return response()->json([
+        'token' => $clientToken
+    ]);
+});
+
+Route::post('checkout', function (Request $request) {
+    $gateway = new Braintree\Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchantId'),
+        'publicKey' => config('services.braintree.publicKey'),
+        'privateKey' => config('services.braintree.privateKey')
+    ]);
+
+    $nonceFromTheClient = $request->payment_method_nonce;
+    $deviceDataFromTheClient = $request->device_data;
+
+    $result = $gateway->transaction()->sale([
+        'amount' => '10.00',
+        'paymentMethodNonce' => $nonceFromTheClient,
+        'deviceData' => $deviceDataFromTheClient,
+        'options' => [
+            'submitForSettlement' => True
+        ]
+    ]);
+
+    if ($result->success) {
+        $transaction = $result->transaction;
+
+        return response()->json([
+            'status' => 'Transaction successful. The ID is:' . $transaction->id,
+        ]);
+    } else {
+        return response()->json([
+            'status' => 'fallito',
+            'nonceRicevuto' => $nonceFromTheClient,
+            'deviceData' => $deviceDataFromTheClient
+        ]);
+    }
+});
