@@ -6,6 +6,8 @@ use App\Models\Restaurant;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use League\CommonMark\Normalizer\SlugNormalizer;
+use Illuminate\Support\Str;
 
 class RestaurantSeeder extends Seeder
 {
@@ -18,6 +20,8 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Trattoria da Mario';
         $newRestaurant->address = 'Via Roma 10, Milano';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        //slug
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1001;
         $newRestaurant->user_id = 1;
         $newRestaurant->save();
@@ -27,6 +31,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Osteria del Gusto';
         $newRestaurant->address = 'Piazza della Libertà 5, Firenze';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1002;
         $newRestaurant->user_id = 2;
         $newRestaurant->save();
@@ -36,6 +41,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Il Vecchio Mulino';
         $newRestaurant->address = 'Corso Vittorio Emanuele 22, Napoli';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1003;
         $newRestaurant->user_id = 3;
         $newRestaurant->save();
@@ -45,6 +51,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante Bella Napoli';
         $newRestaurant->address = 'Via Partenope 15, Napoli';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1004;
         $newRestaurant->user_id = 4;
         $newRestaurant->save();
@@ -54,6 +61,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Cucina Mediterranea';
         $newRestaurant->address = 'Lungomare 8, Bari';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1005;
         $newRestaurant->user_id = 5;
         $newRestaurant->save();
@@ -63,6 +71,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'La Pergola';
         $newRestaurant->address = 'Via Veneto 20, Roma';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1006;
         $newRestaurant->user_id = 6;
         $newRestaurant->save();
@@ -72,6 +81,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante Il Girasole';
         $newRestaurant->address = 'Via Garibaldi 14, Torino';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1007;
         $newRestaurant->user_id = 7;
         $newRestaurant->save();
@@ -81,6 +91,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Pizzeria da Luigi';
         $newRestaurant->address = 'Via Napoli 7, Bologna';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1008;
         $newRestaurant->user_id = 8;
         $newRestaurant->save();
@@ -90,6 +101,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante La Fenice';
         $newRestaurant->address = 'Via Dante 30, Venezia';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1009;
         $newRestaurant->user_id = 9;
         $newRestaurant->save();
@@ -99,6 +111,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Al Forno';
         $newRestaurant->address = 'Via Montenapoleone 18, Milano';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1010;
         $newRestaurant->user_id = 10;
         $newRestaurant->save();
@@ -108,6 +121,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante La Dolce Vita';
         $newRestaurant->address = 'Via Condotti 5, Roma';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1011;
         $newRestaurant->user_id = 11;
         $newRestaurant->save();
@@ -117,6 +131,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'La Taverna di Bacco';
         $newRestaurant->address = 'Via Toledo 12, Napoli';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1012;
         $newRestaurant->user_id = 12;
         $newRestaurant->save();
@@ -126,6 +141,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante Il Mare';
         $newRestaurant->address = 'Via Lungomare 21, Genova';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1013;
         $newRestaurant->user_id = 13;
         $newRestaurant->save();
@@ -135,6 +151,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante La Lanterna';
         $newRestaurant->address = 'Via Milano 9, Torino';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1014;
         $newRestaurant->user_id = 14;
         $newRestaurant->save();
@@ -144,6 +161,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Il Cortile';
         $newRestaurant->address = 'Via Verdi 16, Firenze';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1015;
         $newRestaurant->user_id = 15;
         $newRestaurant->save();
@@ -153,6 +171,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'La Cantina';
         $newRestaurant->address = 'Via Mazzini 4, Pisa';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1016;
         $newRestaurant->user_id = 16;
         $newRestaurant->save();
@@ -162,6 +181,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante L\'Orto';
         $newRestaurant->address = 'Via De Rossi 3, Bari';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1017;
         $newRestaurant->user_id = 17;
         $newRestaurant->save();
@@ -171,6 +191,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante Il Sogno';
         $newRestaurant->address = 'Via Duomo 1, 2, Napoli';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1018;
         $newRestaurant->user_id = 18;
         $newRestaurant->save();
@@ -180,6 +201,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante La Conchiglia';
         $newRestaurant->address = 'Via Salaria 17, Roma';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1019;
         $newRestaurant->user_id = 19;
         $newRestaurant->save();
@@ -189,6 +211,7 @@ class RestaurantSeeder extends Seeder
         $newRestaurant->name = 'Ristorante Il Castello';
         $newRestaurant->address = 'Via Castello 11, Siena';
         $newRestaurant->img = "https://picsum.photos/id/" . rand(1, 600) . "/200/300";
+        $newRestaurant->slug = Str::slug($newRestaurant->name);
         $newRestaurant->tax_id = 1020;
         $newRestaurant->user_id = 20;
         $newRestaurant->save();

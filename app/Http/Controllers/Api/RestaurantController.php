@@ -32,12 +32,11 @@ class RestaurantController extends Controller
     }
 
     public function show($slug)
-{
-    // Cerca il ristorante utilizzando lo slug
-    $restaurant = Restaurant::with('categories', 'dishes', 'user')->where('slug', $slug)->firstOrFail();
-    
-    // Restituisci il ristorante come risposta JSON
-    return response()->json($restaurant);
-}
+    {
+        // Cerca il ristorante utilizzando lo slug
+        $restaurant = Restaurant::with('categories', 'dishes', 'user')->where('slug', $slug)->firstOrFail();
 
+        // Restituisci il ristorante come risposta JSON
+        return response()->json($restaurant);
+    }
 }

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
@@ -62,7 +63,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         // Creo un nuovo ristorante dopo che l'utente e' loggato
-        
+
         $newRestaurant = new Restaurant();
         if (isset($validated['restaurant_img'])) {
             $img = Storage::put('uploads', $validated['restaurant_img']);
@@ -73,6 +74,7 @@ class RegisteredUserController extends Controller
         $newRestaurant->name = $validated['restaurant_name'];
         $newRestaurant->address = $validated['restaurant_address'];
         $newRestaurant->tax_id = $validated['restaurant_tax_id'];
+        $newRestaurant->slug = Str::slug($validated['restaurant_name']);
         $newRestaurant->user_id = Auth::user()->id;
         $newRestaurant->save();
         $newRestaurant->categories()->sync($validated['category_id']);

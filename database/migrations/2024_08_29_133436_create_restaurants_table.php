@@ -17,12 +17,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('tax_id');
             $table->string('address');
+            //SLUG
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->string('img')->nullable();
             $table->timestamps();
         });
-
     }
 
     /**
