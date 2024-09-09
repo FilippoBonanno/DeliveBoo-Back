@@ -15,7 +15,7 @@
 
                             <div class="mb-4 row">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}*</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}<span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
@@ -31,7 +31,7 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}*</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}<span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="email" class="form-control @error('email') is-invalid @enderror"
@@ -47,7 +47,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}*</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}<span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="password" class="form-control @error('password') is-invalid @enderror"
@@ -63,7 +63,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password_confirmation"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}*</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}<span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="password" class="form-control"
@@ -74,7 +74,7 @@
 
                             <div class="mb-4 row">
                                 <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Nome
-                                    Ristorante*</label>
+                                    Ristorante<span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="text"
@@ -91,7 +91,7 @@
 
                             <div class="mb-4 row">
                                 <label for="restaurant_address" class="col-md-4 col-form-label text-md-right">Indirizzo
-                                    Ristorante*
+                                    Ristorante<span class="text-danger">*</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -109,7 +109,7 @@
 
                             <div class="mb-4 row">
                                 <label for="restaurant_tax_id" class="col-md-4 col-form-label text-md-right">Partita
-                                    Iva*</label>
+                                    Iva<span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="text"
@@ -125,7 +125,7 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="category_id" class="col-md-4 col-form-label text-md-right">Tipologie*</label>
+                                <label for="category_id" class="col-md-4 col-form-label text-md-right">Tipologie<span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     @foreach ($categories as $item)
