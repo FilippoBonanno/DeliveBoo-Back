@@ -50,11 +50,12 @@ Route::post('checkout', function (Request $request) {
     ]);
 
     $nonceFromTheClient = $request->payment_method_nonce;
+    $deviceDataFromTheClient = $request->device_data;
 
     $result = $gateway->transaction()->sale([
         'amount' => '10.00',
         'paymentMethodNonce' => $nonceFromTheClient,
-        // 'deviceData' => $deviceDataFromTheClient,d
+        'deviceData' => $deviceDataFromTheClient,
         'options' => [
             'submitForSettlement' => True
         ]
@@ -64,12 +65,13 @@ Route::post('checkout', function (Request $request) {
         $transaction = $result->transaction;
 
         return response()->json([
-            'status' => 'Transaction successful. The ID is:' . $transaction->id
+            'status' => 'Transaction successful. The ID is:' . $transaction->id,
         ]);
     } else {
         return response()->json([
             'status' => 'fallito',
-            'nonceRicevuto' => $nonceFromTheClient
+            'nonceRicevuto' => $nonceFromTheClient,
+            'deviceData' => $deviceDataFromTheClient
         ]);
     }
 });
