@@ -31,9 +31,13 @@ class RestaurantController extends Controller
         return response()->json($restaurants);
     }
 
-    public function show($id)
-    {
-        $restaurant = Restaurant::with('categories', 'dishes', 'user')->findOrFail($id);
-        return response()->json($restaurant);
-    }
+    public function show($slug)
+{
+    // Cerca il ristorante utilizzando lo slug
+    $restaurant = Restaurant::with('categories', 'dishes', 'user')->where('slug', $slug)->firstOrFail();
+    
+    // Restituisci il ristorante come risposta JSON
+    return response()->json($restaurant);
+}
+
 }

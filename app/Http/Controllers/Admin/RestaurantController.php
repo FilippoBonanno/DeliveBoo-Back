@@ -70,13 +70,15 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Restaurant $restaurant)
-    {
-        $data = [
-            'restaurants' => $restaurant
-        ];
-        return view('admin.restaurants.show', $data);
-    }
+    public function show($slug)
+{
+    // Cerca il ristorante utilizzando lo slug
+    $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
+    
+    // Passa il ristorante alla vista
+    return view('admin.restaurants.show', ['restaurant' => $restaurant]);
+}
+
 
     /**
      * Show the form for editing the specified resource.
