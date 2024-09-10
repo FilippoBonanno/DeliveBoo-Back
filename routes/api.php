@@ -77,15 +77,14 @@ Route::post('checkout', function (Request $request) {
             'phone' => "required|min:1|max:255",
             'restaurant_id' => "required"
         ]);
-
         $newOrder = new Order();
         $newOrder->fill($data);
         $newOrder->order_date = now();
         $newOrder->transaction_id = $transaction->id;
         $newOrder->save();
 
-        // return redirect()->away($uri . '/Checkout/success');
-        return response()->json(['transaction' => $transaction, 'order' => $newOrder]);
+        return redirect()->away($uri . '/Checkout/success');
+        // return response()->json(['transaction' => $transaction, 'order' => $newOrder]);
     } else {
 
         // $errorString = "";
