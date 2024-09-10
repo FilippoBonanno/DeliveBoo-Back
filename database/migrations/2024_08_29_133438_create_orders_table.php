@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamp('order_date');
+            $table->string('transaction_id');
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->cascadeOnDelete();
             $table->decimal('total_price');
@@ -23,7 +24,6 @@ return new class extends Migration
             $table->string('buyer_phone');
             $table->timestamps();
         });
-
     }
 
     /**
