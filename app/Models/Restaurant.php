@@ -10,7 +10,7 @@ class Restaurant extends Model
 {
     use HasFactory;
 
-    
+
     protected $fillable = ['name', 'address', 'img', 'tax_id', 'slug'];
 
     // Genera automaticamente lo slug dal nome
@@ -39,5 +39,10 @@ class Restaurant extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
