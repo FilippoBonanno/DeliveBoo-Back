@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\RestaurantController;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ Route::post('checkout', function (Request $request) {
     $uri = 'http://localhost:5174';     // da cambiare a seconda della porta del sito front
 
     $result = $gateway->transaction()->sale([
-        'amount' => $request->amount,
+        'amount' => $request->total_price,
         'paymentMethodNonce' => $nonceFromTheClient,
         'deviceData' => $deviceDataFromTheClient,
         'options' => [
@@ -65,7 +65,27 @@ Route::post('checkout', function (Request $request) {
 
     if ($result->success) {
         $transaction = $result->transaction;
-        return redirect()->away($uri . '/Checkout/Success');
+        $data = $request->validate([
+            'email' => "required|min:1|max:255",
+            'name' => "required|min:1|max:255",
+            'total_price' => "required|numeric|min:0.1|max:999.99",
+            'address' => "required|min:1|max:255",
+            'city' => "required|min:1|max:255",
+            'province' => "required|min:1|max:255",
+            'postalcode' => "required|min:1|max:255",
+            'country' => "required|min:1|max:255",
+            'phone' => "required|min:1|max:255",
+            'restaurant_id' => "required"
+        ]);
+
+        $newOrder = new Order();
+        $newOrder->fill($data);
+        $newOrder->order_date = now();
+        $newOrder->transaction_id = $transaction->id;
+        $newOrder->save();
+
+        // return redirect()->away($uri . '/Checkout/success');
+        return response()->json(['transaction' => $transaction, 'order' => $newOrder]);
     } else {
 
         // $errorString = "";
