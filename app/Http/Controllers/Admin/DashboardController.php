@@ -16,7 +16,7 @@ class DashboardController extends Controller
         if ($user->restaurant) {
             // Se ha un ristorante, controlla se ha dei piatti
             if ($user->restaurant->dishes->isNotEmpty()) {
-                $dishList = auth()->user()->restaurant->dish;
+                $dishList = $user->restaurant->dishes;
                 $data = [
                     "restaurant" => $user->restaurant,
                     "dishes" => $dishList,
