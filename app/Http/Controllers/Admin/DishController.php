@@ -21,7 +21,7 @@ class DishController extends Controller
         if ($user->restaurant) {
             // Se ha un ristorante, controlla se ha dei piatti
             if ($user->restaurant->dishes->isNotEmpty()) {
-                $dishList = auth()->user()->restaurant->dish;
+                $dishList = auth()->user()->restaurant->dishes;
                 $data = [
                     "dishes" => $dishList,
                 ];
