@@ -19,9 +19,14 @@ return new class extends Migration
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->cascadeOnDelete();
             $table->decimal('total_price');
-            $table->string('buyer_name');
-            $table->string('buyer_address');
-            $table->string('buyer_phone');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('address');
+            $table->string('city');
+            $table->string('province');
+            $table->string('postalcode');
+            $table->string('country');
             $table->timestamps();
         });
     }
