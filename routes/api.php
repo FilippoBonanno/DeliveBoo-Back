@@ -63,12 +63,16 @@ Route::post('checkout', function (Request $request) {
         ]
     ]);
 
-    if ($result->success || (!is_null($result->transaction))) {
+    if ($result->success) {
         $transaction = $result->transaction;
         return redirect()->away($uri . '/Checkout/Success');
     } else {
+
+        // $errorString = "";
+        // foreach ($result->errors->deepAll() as $error) {
+        //     $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+        // }
+
         return redirect()->away($uri . '/Checkout/Denied');
     }
 });
-
-
