@@ -45,4 +45,13 @@ class RestaurantController extends Controller
         // Restituisci il ristorante come risposta JSON
         return response()->json($restaurant);
     }
+
+    public function showid($id)
+    {
+        // Cerca il ristorante utilizzando l'id
+        $restaurant = Restaurant::where('id',$id)->first();
+
+        // Restituisci il ristorante come risposta JSON
+        return response()->json($restaurant);
+    }
 }

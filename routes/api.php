@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\RestaurantController;
+use App\Mail\NewOrder;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('restaurants', [RestaurantController::class, 'index']);
 Route::get('restaurants/{slug}', [RestaurantController::class, 'show']);
+Route::get('restaurants/showid/{id}', [RestaurantController::class, 'showid']);
 
 Route::get('categories', [CategoryController::class, 'index']);
 
@@ -83,7 +86,9 @@ Route::post('checkout', function (Request $request) {
         $newOrder->transaction_id = $transaction->id;
         $newOrder->save();
 
-        return redirect()->away($uri . '/Checkout/success');
+        Mail::to('info@boolean.com')->send(new NewOrder($newOrder));
+
+        return redirect()->away($uri . '/checkout/success');
         // return response()->json(['transaction' => $transaction, 'order' => $newOrder]);
     } else {
 
@@ -92,6 +97,6 @@ Route::post('checkout', function (Request $request) {
         //     $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
         // }
 
-        return redirect()->away($uri . '/Checkout/Denied');
+        return redirect()->away($uri . '/checkout/denied');
     }
 });
