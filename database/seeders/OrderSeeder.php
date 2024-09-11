@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class OrderSeeder extends Seeder
 {
@@ -28,6 +30,35 @@ class OrderSeeder extends Seeder
         $newOrder->transaction_id = 1;
         $newOrder->save();
 
+        //ORDINI FITTIZZI PER IL RISTORANTE OSTERIA DEL GUSTO ID 1 
+
+        $faker = Faker::create();
+        $restaurantId = 1; // ID del ristorante fisso
+        $now = Carbon::now();
+
+        for ($i = 0; $i < 60; $i++) {
+            // Genera una data casuale negli ultimi 12 mesi
+            $randomDate = Carbon::now()->subDays(rand(0, 365))->setTime(rand(0, 23), rand(0, 59), 0);
+
+            // Crea un nuovo ordine con dati casuali
+            $newOrder = new Order();
+            $newOrder->order_date = $randomDate;
+            $newOrder->created_at = $newOrder->order_date;
+            $newOrder->restaurant_id = $restaurantId;
+            $newOrder->total_price = $faker->randomFloat(2, 10, 100); // Prezzo casuale tra 10 e 100
+            $newOrder->name = $faker->firstName();
+            $newOrder->email = $faker->email;
+            $newOrder->address = $faker->streetAddress;
+            $newOrder->city = 'Milano';
+            $newOrder->province = 'Milano';
+            $newOrder->postalcode = $faker->postcode;
+            $newOrder->country = 'Italia';
+            $newOrder->phone = $faker->phoneNumber;
+            $newOrder->transaction_id = rand(1000, 9999); // ID transazione fittizio
+            $newOrder->save();
+        }
+
+
         $newOrder = new Order();
         $newOrder->order_date = '2024-12-31 14:05:00';
         $newOrder->restaurant_id = 2;
@@ -43,6 +74,34 @@ class OrderSeeder extends Seeder
         $newOrder->transaction_id = 1;
         $newOrder->save();
 
+        //ORDINI FITTIZZI PER IL RISTORANTE OSTERIA DEL GUSTO ID 2 
+
+        $faker = Faker::create();
+        $restaurantId = 2; // ID del ristorante fisso
+        $now = Carbon::now();
+
+        for ($i = 0; $i < 90; $i++) {
+            // Genera una data casuale negli ultimi 12 mesi
+            $randomDate = Carbon::now()->subDays(rand(0, 365))->setTime(rand(0, 23), rand(0, 59), 0);
+
+            // Crea un nuovo ordine con dati casuali
+            $newOrder = new Order();
+            $newOrder->order_date = $randomDate;
+            $newOrder->created_at = $newOrder->order_date;
+            $newOrder->restaurant_id = $restaurantId;
+            $newOrder->total_price = $faker->randomFloat(2, 10, 100); // Prezzo casuale tra 10 e 100
+            $newOrder->name = $faker->firstName();
+            $newOrder->email = $faker->email;
+            $newOrder->address = $faker->streetAddress;
+            $newOrder->city = 'Milano';
+            $newOrder->province = 'Milano';
+            $newOrder->postalcode = $faker->postcode;
+            $newOrder->country = 'Italia';
+            $newOrder->phone = $faker->phoneNumber;
+            $newOrder->transaction_id = rand(1000, 9999); // ID transazione fittizio
+            $newOrder->save();
+        }
+
         $newOrder = new Order();
         $newOrder->order_date = '2024-12-31 14:05:00';
         $newOrder->restaurant_id = 3;
@@ -57,6 +116,34 @@ class OrderSeeder extends Seeder
         $newOrder->phone = '+39 34563456';
         $newOrder->transaction_id = 1;
         $newOrder->save();
+
+        //ORDINI FITTIZZI PER IL RISTORANTE OSTERIA DEL GUSTO ID 3 
+
+        $faker = Faker::create();
+        $restaurantId = 3; // ID del ristorante fisso
+        $now = Carbon::now();
+
+        for ($i = 0; $i < 70; $i++) {
+            // Genera una data casuale negli ultimi 12 mesi
+            $randomDate = Carbon::now()->subDays(rand(0, 365))->setTime(rand(0, 23), rand(0, 59), 0);
+
+            // Crea un nuovo ordine con dati casuali
+            $newOrder = new Order();
+            $newOrder->order_date = $randomDate;
+            $newOrder->created_at = $newOrder->order_date;
+            $newOrder->restaurant_id = $restaurantId;
+            $newOrder->total_price = $faker->randomFloat(2, 10, 100); // Prezzo casuale tra 10 e 100
+            $newOrder->name = $faker->firstName();
+            $newOrder->email = $faker->email;
+            $newOrder->address = $faker->streetAddress;
+            $newOrder->city = 'Milano';
+            $newOrder->province = 'Milano';
+            $newOrder->postalcode = $faker->postcode;
+            $newOrder->country = 'Italia';
+            $newOrder->phone = $faker->phoneNumber;
+            $newOrder->transaction_id = rand(1000, 9999); // ID transazione fittizio
+            $newOrder->save();
+        }
 
         $newOrder = new Order();
         $newOrder->order_date = '2024-12-31 14:05:00';

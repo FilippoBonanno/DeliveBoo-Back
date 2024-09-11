@@ -94,6 +94,12 @@
 										<i class="fa-solid fa-list fa-lg fa-fw"></i> Lista Ordini Ricevuti
 									</a>
 								</li>
+								<li class="nav-item">
+									<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.orders.chart' ? 'bg-secondary' : '' }}"
+										href="{{ route('admin.orders.chart') }}">
+										<i class="fa-solid fa-chart-simple fa-lg fa-fw"></i> Grafico Ordini ultimi 12 mesi
+									</a>
+								</li>
 							@endif
 
 							<li class="nav-item">

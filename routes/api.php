@@ -52,7 +52,7 @@ Route::post('checkout', function (Request $request) {
 
     $nonceFromTheClient = $request->payment_method_nonce;
     $deviceDataFromTheClient = $request->device_data;
-    $uri = 'http://localhost:5174';     // da cambiare a seconda della porta del sito front
+    $uri = 'http://localhost:5173';     // da cambiare a seconda della porta del sito front
 
     $result = $gateway->transaction()->sale([
         'amount' => $request->total_price,

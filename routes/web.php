@@ -35,6 +35,7 @@ Route::middleware(['auth'])
         Route::resource('/restaurants', RestaurantController::class);
         Route::resource('/dishes', DishController::class);
         Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+        Route::get('/orders/chart', [OrderController::class, 'showOrdersChart'])->name('orders.chart');
     });
 
 require __DIR__ . '/auth.php';
