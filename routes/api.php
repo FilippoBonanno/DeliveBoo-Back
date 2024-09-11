@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\RestaurantController;
+use App\Mail\NewOrder;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,6 +85,8 @@ Route::post('checkout', function (Request $request) {
         $newOrder->order_date = now();
         $newOrder->transaction_id = $transaction->id;
         $newOrder->save();
+
+        Mail::to('info@boolean.com')->send(new NewOrder($newOrder));
 
         return redirect()->away($uri . '/checkout/success');
         // return response()->json(['transaction' => $transaction, 'order' => $newOrder]);

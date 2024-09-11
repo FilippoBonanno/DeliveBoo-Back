@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "braintree/braintree_php": "^6.19",
-        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/guzzle": "^7.8",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.7"
