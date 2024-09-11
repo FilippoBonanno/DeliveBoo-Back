@@ -83,7 +83,7 @@ Route::post('checkout', function (Request $request) {
         $newOrder->transaction_id = $transaction->id;
         $newOrder->save();
 
-        return redirect()->away($uri . '/Checkout/success');
+        return redirect()->away($uri . '/checkout/success');
         // return response()->json(['transaction' => $transaction, 'order' => $newOrder]);
     } else {
 
@@ -92,6 +92,6 @@ Route::post('checkout', function (Request $request) {
         //     $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
         // }
 
-        return redirect()->away($uri . '/Checkout/Denied');
+        return redirect()->away($uri . '/checkout/denied');
     }
 });
