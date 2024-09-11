@@ -13,7 +13,7 @@ class OrderController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $orderList = $user->restaurant->orders()->orderByDesc('id')->get();
+        $orderList = $user->restaurant->orders()->orderByDesc('created_at')->get();
 
         // $orderList = Order::orderByDesc('id')->get();
         $data = [
