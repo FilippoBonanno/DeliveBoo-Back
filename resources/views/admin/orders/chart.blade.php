@@ -37,7 +37,7 @@
 					y: {
 						beginAtZero: true,
 						ticks: {
-							stepSize: 1,
+							// stepSize: 1,
 							// Includo il simbolo €
 							callback: function(value) {
 								return 'N.Ordini: ' + value;
