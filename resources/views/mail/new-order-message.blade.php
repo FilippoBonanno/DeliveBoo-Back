@@ -23,7 +23,7 @@ Il team di **{{ config('app.name') }}**
 @component('mail::message')
 # Dettagli dell'Ordine
 
-## Ordine
+## {{$lead->restaurant->name}}
 
 ### Data dell'ordine
 {{ $lead->order_date }}
