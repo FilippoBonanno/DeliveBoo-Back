@@ -66,6 +66,7 @@ Route::post('checkout', function (Request $request) {
     ]);
 
     if ($result->success) {
+        $plates = json_decode($request->plates);
         $transaction = $result->transaction;
         $data = $request->validate([
             'email' => "required|min:1|max:255",
@@ -84,6 +85,10 @@ Route::post('checkout', function (Request $request) {
         $newOrder->order_date = now();
         $newOrder->transaction_id = $transaction->id;
         $newOrder->save();
+
+        foreach ($plates as $plate) {
+            $newOrder->dishes()->attach($plate->id,['quantity'=>$plate->quantity,'price'=>$plate->price*$plate->quantity,'dish_name'=>$plate->name]);
+        }
 
         Mail::to('info@boolean.com')->send(new NewOrder($newOrder));
 

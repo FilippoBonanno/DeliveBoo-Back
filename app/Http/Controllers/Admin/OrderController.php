@@ -80,4 +80,13 @@ class OrderController extends Controller
 
         return view('admin.orders.chart',  $data);
     }
+
+    public function show($id){
+        
+        $data = [
+            "order"=> Order::all()->where('id',$id)->first()
+        ];
+
+        return view('admin.orders.show',$data);
+    }
 }

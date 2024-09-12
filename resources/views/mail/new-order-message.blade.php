@@ -1,4 +1,4 @@
-@component('mail::message')
+{{-- @component('mail::message')
 # Grazie per il tuo ordine!
 
 Ciao **{{ $lead->name }}**,
@@ -18,4 +18,45 @@ Grazie ancora per aver scelto **{{ config('app.name') }}**.
 Saluti,<br>
 Il team di **{{ config('app.name') }}**
 
+@endcomponent --}}
+
+@component('mail::message')
+# Dettagli dell'Ordine
+
+## Ordine
+
+### Data dell'ordine
+{{ $lead->order_date }}
+
+### Numero Ordine
+{{ $lead->id }}
+
+---
+
+### Piatti Ordinati
+
+@component('mail::table')
+| Nome Piatto      | Qnt           | Prezzo  |
+|:-----------------|:-------------:|--------:|
+@foreach ($lead->dishes as $dish)
+| {{ $dish->name }} | {{ $dish->pivot->quantity }} | €{{ $dish->price }} |
+@endforeach
 @endcomponent
+
+### Totale: **€{{ $lead->total_price }}**
+
+---
+
+## Indirizzo di Spedizione
+
+@component('mail::table')
+| Indirizzo        | Provincia      | Paese         | Codice Postale |
+|:-----------------|:---------------|:--------------|:---------------|
+| {{ $lead->address }} | {{ $lead->province }} | {{ $lead->country }} | {{ $lead->postalcode }} |
+@endcomponent
+
+Grazie per il tuo ordine!
+
+@endcomponent
+
+
