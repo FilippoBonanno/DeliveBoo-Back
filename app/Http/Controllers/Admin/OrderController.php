@@ -81,12 +81,18 @@ class OrderController extends Controller
         return view('admin.orders.chart',  $data);
     }
 
-    public function show($id){
-        
-        $data = [
-            "order"=> Order::all()->where('id',$id)->first()
-        ];
+    public function show($id)
+    {
 
-        return view('admin.orders.show',$data);
+
+        $order = Order::all()->where('id', $id)->first();
+
+        if ($order && $order->restaurant->user_id == auth()->id()) {
+
+            return view('admin.orders.show', ['order' => $order]);
+        } else {
+
+            abort(403, 'Non sei autorizzato a visualizzare questo ordine.');
+        }
     }
 }
