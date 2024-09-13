@@ -26,7 +26,7 @@ Il team di **{{ config('app.name') }}**
 ## {{$lead->restaurant->name}}
 
 ### Data dell'ordine
-{{ $lead->order_date }}
+{{ date("d/m/Y H:m", strtotime($lead->order_date)) }}
 
 ### Numero Ordine
 {{ $lead->id }}

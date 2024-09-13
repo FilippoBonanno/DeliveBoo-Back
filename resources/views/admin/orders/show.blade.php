@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <p class="small text-muted mb-1">Data</p>
-                                    <p>{{ $order->order_date }}</p>
+                                    <p>{{ date("d/m/Y H:m", strtotime($order->order_date)) }}</p>
                                 </div>
                                 <div class="col mb-3">
                                     <p class="small text-muted mb-1">Order No.</p>

@@ -20,7 +20,7 @@
 					<td class="d-lg-table-cell d-none"> {{ $order->phone }} </td>
 					<td> {{ $order->email }} </td>
 					<td>€{{ $order->total_price }}</td>
-					<td>{{ $order->order_date }}</td>
+					<td>{{ date("d/m/Y H:m", strtotime($order->order_date)) }}</td>
 				</tr>
 			@endforeach
 
