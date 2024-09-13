@@ -102,7 +102,7 @@
                 </nav>
 
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 p-0">
-					<div class="container-fluid bg-dark p-2 d-flex justify-content-between d-md-none position-fixed">
+					<div class="container-fluid bg-dark p-2 d-flex justify-content-between d-md-none position-fixed z-3">
 						<div class="text-light">
 							Deliveboo
 						</div>
