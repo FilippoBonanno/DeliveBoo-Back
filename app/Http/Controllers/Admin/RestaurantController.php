@@ -16,91 +16,29 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $data = [
-            'restaurants' => Restaurant::orderByDesc('id')->get()
-        ];
-        return view('admin.restaurants.index', $data);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
         // $data = [
-        //     'categories' => Category::all()
+        //     'restaurants' => Restaurant::orderBy('id','asc')->get()
         // ];
-        // if (auth()->user()->restaurant) {
-        //     $data = [
-        //         'status' => 'You can create only 1 restaurant!',
-        //     ];
-        //     return view('admin.errorPage', $data);
-        // } else {
-        //     return view('admin.restaurants.create', $data);
-        // }
+        // return view('admin.restaurants.index', $data);
+        return abort(404);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        // $data = $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'address' => 'required|string|max:255',
-        //     'tax_id' => 'required|string|max:255',
-        //     'category_id' => 'required|array',
-        //     'category_id.*' => 'required|numeric|integer|exists:categories,id',
-        //     'img' => 'required|image',
-        // ]);
-
-
-        // $img = Storage::put('uploads', $data['img']);
-        // $data['img'] = $img;  //salva il percorso
-
-
-        // $newRestaurant = new Restaurant();
-        // $newRestaurant->fill($data);
-        // $newRestaurant->user_id = Auth::user()->id;
-        // $newRestaurant->save();
-        // $newRestaurant->categories()->sync($data['category_id']);
-        // return redirect()->route('admin.restaurants.index');
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show($slug)
-{
-    // Cerca il ristorante utilizzando lo slug
-    $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
-    
-    // Passa il ristorante alla vista
-    return view('admin.restaurants.show', ['restaurant' => $restaurant]);
-}
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
     {
-        //
-    }
+        // // Cerca il ristorante utilizzando lo slug
+        // $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        // $currentRestaurant = auth()->user()->restaurant;
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        // if (!$currentRestaurant || $currentRestaurant->slug != $restaurant->slug) {
+        //     abort(403, 'Accesso non autorizzato');
+        // } else {
+        //     $data = [
+        //         "restaurant" => $restaurant
+        //     ];
+
+        //     return view('admin.restaurants.show', $data);
+        // }
+        return abort(404,'La pagina non esiste');
     }
 }
