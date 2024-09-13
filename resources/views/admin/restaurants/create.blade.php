@@ -1,10 +1,8 @@
-@extends('layouts.admin')
+{{-- @extends('layouts.admin')
 
 @section('content')
     <div class="container">
         <h1 class="text-center py-2">Crea Nuovo Ristorante</h1>
-
-        {{-- MESSAGGIO DI ERRORE SE NON SI COMPLETANO I CAMPI CHE SONO OBBLIGATORI --}}
         <div>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -68,4 +66,4 @@
             <button type="submit" class="btn btn-outline-primary">Invia Nuovo Progetto</button>
         </form>
     </div>
-@endsection
+@endsection --}}
