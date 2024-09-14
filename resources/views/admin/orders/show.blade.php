@@ -33,7 +33,7 @@
                                 </div>
                             </div>
 
-                            <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
+                            <div class="mx-n5 px-sm-0 py-4 px-md-5" style="background-color: #f2f2f2;">
 
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -62,7 +62,7 @@
                                                             <td style="background-color: #f2f2f2; border:#f2f2f2;">
                                                                 {{ $dish->pivot->quantity }} </td>
                                                             <td style="background-color: #f2f2f2; border:#f2f2f2;">
-                                                                {{ $dish->price }} </td>
+                                                                €{{ $dish->price }} </td>
                                                         </tr>
                                                     @endforeach
 
