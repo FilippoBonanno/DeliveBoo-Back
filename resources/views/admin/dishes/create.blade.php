@@ -32,7 +32,8 @@
 
 			<div class="mb-3">
 				<label for="price" class="form-label">Prezzo*</label>
-				<input type="number" class="form-control" name="price" value="{{ old('price') }}" required step='0.01' min="0.1" max="999.99">
+				<input type="number" class="form-control" name="price" value="{{ old('price') }}" required step='0.01'
+					min="0.1" max="999.99">
 				@error('price')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
@@ -40,7 +41,7 @@
 
 			<div class="mb-3">
 				<label for="description" class="form-label">Descrizione*</label>
-				<textarea class="form-control" name="description" rows="3" required minlength="20" maxlength="1000">{{ old('description')}}</textarea>
+				<textarea class="form-control" name="description" rows="3" required minlength="20" maxlength="1000">{{ old('description') }}</textarea>
 				@error('description')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
@@ -48,13 +49,25 @@
 
 			<div class="mb-3">
 				<label for="img" class="form-label">Immagine*</label>
-				<input type="file" class="form-control" name="img" value="{{ old('img') }}" required accept=".png, .jpg, .jpeg">
+				<input type="file" class="form-control" name="img" value="{{ old('img') }}" required
+					accept=".png, .jpg, .jpeg">
 				@error('img')
 					<div class="form-text text-danger">{{ $message }}</div>
 				@enderror
 			</div>
 
-			<button type="submit" class="btn btn-outline-primary">Invia Nuovo Piatto</button>
+			<div class="mb-3">
+				<label for="visibility" class="form-label">Visibilità</label>
+				<select name="visibility">
+					<option value="1">Sì</option>
+					<option value="0">No</option>
+				</select>
+				@error('visibility')
+					<div class="form-text text-danger">{{ $message }}</div>
+				@enderror
+			</div>
+
+			<button type="submit" class="btn btn-outline-primary">Salva Nuovo Piatto</button>
 		</form>
 	</div>
 @endsection

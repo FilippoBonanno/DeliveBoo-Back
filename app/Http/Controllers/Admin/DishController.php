@@ -30,7 +30,7 @@ class DishController extends Controller
                 $data = [
                     'status' => 'Non hai nessun piatto!'
                 ];
-                return view('admin.errorPage',$data);
+                return view('admin.dishes.index');
             }
         } else {
             abort(403, 'Non hai un ristorante!');
@@ -60,7 +60,7 @@ class DishController extends Controller
                 'price' => "required|numeric|decimal:2|min:0.1|max:999.99",
                 'description' => "required|min:20|max:1000",
                 'img' => "required|image",  /* max da aggiungere successivamente*/
-                // 'visibility' => "required",
+                'visibility' => "required",
             ]);
 
             if ($request->has('img')) {
@@ -72,7 +72,6 @@ class DishController extends Controller
             $newDish = new Dish();
             $newDish->fill($data);
             $newDish->restaurant_id = Auth::user()->restaurant->id;
-            $newDish->visibility = true;
             $newDish->save();
 
             return redirect()->route('admin.dashboard', $newDish);
