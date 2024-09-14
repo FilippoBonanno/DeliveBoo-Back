@@ -50,9 +50,9 @@ Il team di **{{ config('app.name') }}**
 ## Indirizzo di Spedizione
 
 @component('mail::table')
-| Indirizzo        | Provincia      | Paese         | Codice Postale |
-|:-----------------|:---------------|:--------------|:---------------|
-| {{ $lead->address }} | {{ $lead->province }} | {{ $lead->country }} | {{ $lead->postalcode }} |
+| Indirizzo        | Città          | Provincia      | Paese         | Codice Postale |
+|:-----------------|:---------------|:---------------|:--------------|:---------------|
+| {{ $lead->address }} | {{ $lead->province }} |{{$lead->city}}| {{ $lead->country }} | {{ $lead->postalcode }} |
 @endcomponent
 
 Grazie per il tuo ordine!

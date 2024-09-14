@@ -13,11 +13,23 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <p class="small text-muted mb-1">Data</p>
-                                    <p>{{ date("d/m/Y H:m", strtotime($order->order_date)) }}</p>
+                                    <p>{{ date('d/m/Y H:m', strtotime($order->order_date)) }}</p>
                                 </div>
                                 <div class="col mb-3">
                                     <p class="small text-muted mb-1">Order No.</p>
                                     <p>{{ $order->id }}</p>
+                                </div>
+                                <div class="col mb-3">
+                                    <p class="small text-muted mb-1">Nome</p>
+                                    <p>{{ $order->name }}</p>
+                                </div>
+                                <div class="col mb-3">
+                                    <p class="small text-muted mb-1">Email</p>
+                                    <p>{{ $order->email }}</p>
+                                </div>
+                                <div class="col mb-3">
+                                    <p class="small text-muted mb-1">Telefono</p>
+                                    <p>{{ $order->phone }}</p>
                                 </div>
                             </div>
 
@@ -25,25 +37,39 @@
 
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <table class="table">
-                                            <thead>
-                                                <tr style="background-color: #f2f2f2;">
-                                                    <th style="background-color: #f2f2f2; border:#f2f2f2;" scope="col">Nome Piatto</th>
-                                                    <th style="background-color: #f2f2f2; border:#f2f2f2;" scope="col">Qnt</th>
-                                                    <th style="background-color: #f2f2f2; border:#f2f2f2;"scope="col">Prezzo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($order->dishes as $dish)
-                                                    <tr>
-                                                        <td style="background-color: #f2f2f2; border:#f2f2f2;">{{ $dish->name }}</td>
-                                                        <td style="background-color: #f2f2f2; border:#f2f2f2;"> {{ $dish->pivot->quantity }} </td>
-                                                        <td style="background-color: #f2f2f2; border:#f2f2f2;"> {{ $dish->price }} </td>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr style="background-color: #f2f2f2;">
+                                                        <th style="background-color: #f2f2f2; border:#f2f2f2;"
+                                                            scope="col">
+                                                            Nome Piatto
+                                                        </th>
+                                                        <th style="background-color: #f2f2f2; border:#f2f2f2;"
+                                                            scope="col">
+                                                            Qnt
+                                                        </th>
+                                                        <th style="background-color: #f2f2f2; border:#f2f2f2;"scope="col">
+                                                            Prezzo
+                                                        </th>
                                                     </tr>
-                                                @endforeach
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($order->dishes as $dish)
+                                                        <tr>
+                                                            <td style="background-color: #f2f2f2; border:#f2f2f2;">
+                                                                {{ $dish->name }}</td>
+                                                            <td style="background-color: #f2f2f2; border:#f2f2f2;">
+                                                                {{ $dish->pivot->quantity }} </td>
+                                                            <td style="background-color: #f2f2f2; border:#f2f2f2;">
+                                                                {{ $dish->price }} </td>
+                                                        </tr>
+                                                    @endforeach
 
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
 
                                     </div>
                                 </div>
@@ -60,24 +86,28 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Indirizzo</th>
-                                                <th scope="col">Provincia</th>
-                                                <th scope="col">Paese</th>
-                                                <th scope="col">Codice postale</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>{{ $order->address }}</td>
-                                                <td> {{ $order->province }} </td>
-                                                <td> {{ $order->country }} </td>
-                                                <td>{{ $order->postalcode }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Indirizzo</th>
+                                                    <th scope="col">Città</th>
+                                                    <th scope="col">Provincia</th>
+                                                    <th scope="col">Paese</th>
+                                                    <th scope="col">CAP</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{ $order->address }}</td>
+                                                    <td>{{ $order->city }}</td>
+                                                    <td> {{ $order->province }} </td>
+                                                    <td> {{ $order->country }} </td>
+                                                    <td>{{ $order->postalcode }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
                                 </div>
                             </div>
