@@ -14,8 +14,8 @@
                             @csrf
 
                             <div class="mb-4 row">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}<span class="text-danger">*</span></label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}<span
+                                        class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
@@ -30,8 +30,8 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}<span class="text-danger">*</span></label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}<span
+                                        class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="email" class="form-control @error('email') is-invalid @enderror"
@@ -47,7 +47,8 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}<span class="text-danger">*</span></label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}<span
+                                        class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input type="password" class="form-control @error('password') is-invalid @enderror"
@@ -63,12 +64,12 @@
 
                             <div class="mb-4 row">
                                 <label for="password_confirmation"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}<span class="text-danger">*</span></label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}<span
+                                        class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
-                                    <input type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password"
-                                        value="{{ old('password_confirmation') }}">
+                                    <input type="password" class="form-control" name="password_confirmation" required
+                                        autocomplete="new-password" value="{{ old('password_confirmation') }}">
                                 </div>
                             </div>
 
@@ -125,15 +126,20 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="category_id" class="col-md-4 col-form-label text-md-right">Tipologie<span class="text-danger">*</span></label>
+                                <label for="category_id" class="col-md-4 col-form-label text-md-right">Tipologie<span
+                                        class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
-                                    @foreach ($categories as $item)
-                                        <label for="category_id" class="form-label">{{ $item->name }}</label>
-                                        <input type="checkbox"
-                                            class="form-check-input @error('restaurant_tax_id') is-invalid @enderror"
-                                            name="category_id[]" value="{{ $item->id }}">
-                                    @endforeach
+                                    <div class="row">
+                                        @foreach ($categories as $item)
+                                            <div class="col-6">
+                                                <input type="checkbox"
+                                                    class="form-check-input @error('restaurant_tax_id') is-invalid @enderror"
+                                                    name="category_id[]" value="{{ $item->id }}">
+                                                <label for="category_id" class="form-label">{{ $item->name }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                     @error('category_id')
                                         <div class="text-danger" role="alert">
                                             {{ $message }}
