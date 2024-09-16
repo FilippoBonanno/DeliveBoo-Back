@@ -5,11 +5,11 @@
 		<div class="card p-0 h-100">
 			@if (Str::startsWith($dish->img, 'http'))
 				<div class="col-4">
-					<img src="{{ $dish->img }}" alt="immagine-piatto" class="w-100 rounded-start">
+					<img src="{{ $dish->img }}" alt="immagine-piatto" class="w-100 rounded">
 				</div>
 			@else
 				<div class="col-4">
-					<img src="{{ asset('storage/' . $dish->img) }}" class="w-100 rounded-start" alt="immagine-piatto">
+					<img src="{{ asset('storage/' . $dish->img) }}" class="w-100 rounded" alt="immagine-piatto">
 				</div>
 			@endif
 
