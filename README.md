@@ -76,8 +76,6 @@ Avvia Vite per la gestione delle risorse front-end:
 bash
 
 npm run dev
-Demo e Screenshot
-Puoi vedere una demo live qui oppure guarda uno screenshot dell'interfaccia:
 
 
 Contatti
