@@ -1,128 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+
+<p align="center"><a href="https://vuejs.org/" target="_blank"><img src="./public/images/Screenshot_2024-09-16_171534.png" width="800" alt="Interfaccia Utente di DeliveBoo"></a></p>
 
 <p align="center">
-<img src="https://img.shields.io/badge/template-tested-green" alt="Build Status">
-<img src="https://img.shields.io/badge/laravel-10.10-red" alt="Laravel 10.10" />
-<img src="https://img.shields.io/badge/laravel_breeze-1.28.1-red" alt="Laravel Breeze 1.28.1" />
-<img src="https://img.shields.io/badge/bootstrap-5.3.2-red" alt="Bootstrap 5.3.2" />
-<img src="https://img.shields.io/badge/vite-5.00-red" alt="Vite 5.00" />
+<img src="https://img.shields.io/badge/project-DeliveBoo-brightgreen" alt="Project Status">
+<img src="https://img.shields.io/badge/vue-3.x-blue" alt="Vue.js 3.x" />
+<img src="https://img.shields.io/badge/laravel-10.x-red" alt="Laravel 10.x" />
+<img src="https://img.shields.io/badge/bootstrap-5.x-orange" alt="Bootstrap 5.x" />
+<img src="https://img.shields.io/badge/npm-7.x-yellow" alt="NPM 7.x" />
 <br>
-<img src="https://img.shields.io/badge/license-boolean_95-blue" alt="Licensed to Boolean Students #95" />
-<img src="https://img.shields.io/badge/license-boolean_109-blue" alt="Licensed to Boolean Students #109" />
-<img src="https://img.shields.io/badge/license-boolean_125-blue" alt="Licensed to Boolean Students #125" />
+<img src="https://img.shields.io/badge/license-MIT-blue" alt="License MIT" />
 </p>
 
-# INFO
+# DeliveBoo
 
-Questo git-template fornisce lo scaffold di una web application realizzata con Laravel 10, Blade, Breeze, SCSS, Bootstrap e Vite. 
+DeliveBoo è una piattaforma di food delivery che consente agli utenti di ordinare cibo dai ristoranti locali. Il progetto è stato sviluppato per mettere in pratica e migliorare le mie competenze in **Vue.js** e **Laravel**, concentrandomi sull'integrazione tra frontend e backend e sulla creazione di un'applicazione reattiva e scalabile.
 
-- [Documentazione Laravel 10.x](https://laravel.com/docs/10.x).
-- [Documentazione Laravel Breeze](https://laravel.com/docs/10.x/starter-kits).
+## Tecnologie Utilizzate
 
-# SETUP INIZIALE
+- **Vue.js 3.x**: Interfaccia utente dinamica e interattiva.
+- **Laravel 10.x**: Framework back-end per la gestione di utenti, ordini e ristoranti.
+- **Bootstrap 5.x**: Layout responsive e design moderno.
+- **Animate.css**: Aggiunta di animazioni per un'esperienza utente migliore.
+- **Vite**: Gestione delle risorse front-end per performance ottimizzate.
 
-- Creare un repository a partire da questo template, cliccando in alto a destra sul pulsantone verde `Use this template` e poi su `Create a new repository`
-- Clonare il repository appena creato sul proprio PC
-- Da phpMyAdmin creare un database, importarvi i dati e segnarvi il nome dato al DB
-- Creare un file `.env`. Si può procedere copiandolo da `.env.example`
-- Per creare la APP_KEY nel `.env`, lanciare il comando dedicato, ma prima installare le dipendenze composer
-	```bash
-    composer install
-	php artisan key:generate
-	```
- - Installare anche le dipendenze NPM
-	```bash
-	npm i
-	```
-- Ri-controllare che tutti i dati nel `.env` siano corretti (attenzione al database!)
-- Lanciare migrazioni e seeder
-	```bash
-	php artisan migrate:fresh --seed
-	```
-- Lanciare il progetto tramite il server built-in di PHP
-	```bash
-	php artisan serve
-	```
-- Lanciare vite
-	```bash
-	npm run dev
-	```
-- Puntare il browser all'indirizzo mostrato in terminale per controllare che tutto funzioni.
-- Navigate all'indirizzo per fare [login](http://localhost:8000/admin). Potete registrare un nuovo utente o usare:
-	```bash
-	user: luca@lambia.it
-	pass: 1backdoor2big
-	```
-- Una volta loggati dovreste poter raggiungere [la dashboard](http://localhost:8000/admin)
+## Funzionalità Principali
 
-# RISORSE: MODEL, CONTROLLER, MIGRATION, SEEDER
+- **Autenticazione Utente**: Login, registrazione e gestione dell'account con Laravel.
+- **Carrello Dinamico**: Aggiornamenti in tempo reale tramite Vue.js.
+- **Responsività Completa**: Layout adattivo per dispositivi mobili e desktop.
+- **Gestione Ordini**: Gli utenti possono ordinare dai ristoranti e gestire i propri ordini.
 
-Si possono creare tutti insieme con:
+## Lezioni Apprese
 
+Durante lo sviluppo di **DeliveBoo**, ho acquisito esperienza pratica nell'integrazione tra frontend e backend. Ho imparato a gestire la **comunicazione efficiente tra Vue.js e Laravel**, migliorando la struttura del codice e ottimizzando le performance per applicazioni complesse. Ho anche approfondito le migliori pratiche per la gestione dello stato dell'applicazione.
+
+## Setup Iniziale
+
+Segui questi passi per configurare il progetto in locale:
+
+### 1. Clonare la Repository
+Clona la repository del progetto sul tuo computer:
 ```bash
-php artisan make:model NomeModello -rmsR
-```
+git clone https://github.com/FilippoBonanno/DeliveBoo-Front.git
 
--r o --resource indica se creare un controller di tipo Resource Controller
-<br>
--c o --controller crea un normale Controller (se non usato insieme a -r)
-<br>
--m o --migration crea la Migration per il modello
-<br>
--s o --seed crea il Seeder per il modello
-<br>
--R o --requests crea le FormRequest e le usa nel Resource Controller
-<br>
 
-Qui trovate la lista dei parametri accettati da [`make:model`](https://artisan.page/#makemodel)
+Setup Iniziale
+Segui questi passi per configurare il progetto in locale:
 
-A questo punto potete andare a definire il comportamento di migration e seeder nei relativi file.
-
-Infine lanciate entrambi usando il comando:
-```bash
+Clona la repository
+bash
+ 
+git clone https://github.com/FilippoBonanno/DeliveBoo-Front.git
+Entra nella cartella del progetto e installa le dipendenze NPM:
+bash
+ 
+npm install
+Installa le dipendenze di Laravel con Composer:
+bash
+ 
+composer install
+Crea un file .env copiandolo da .env.example e aggiorna le configurazioni per il database.
+Genera una chiave di applicazione per Laravel:
+bash
+ 
+php artisan key:generate
+Esegui le migrazioni e i seeder:
+bash
+ 
 php artisan migrate:fresh --seed
-```
+Avvia il server di sviluppo:
+bash
+ 
+php artisan serve
+Avvia Vite per la gestione delle risorse front-end:
+bash
 
-# CRUD
+npm run dev
+Demo e Screenshot
+Puoi vedere una demo live qui oppure guarda uno screenshot dell'interfaccia:
 
-Una volta creato un Resource Controller richiamatelo dalla rotte, come abbiamo sempre fatto.
-```php
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PostController; // <---- Importare il controller da usare!!
 
-Route::resource('posts', PostController::class);
-```
-
-Testato che tutto funzioni possiamo valutare di spostarlo sotto autenticazione.
-
-Spostare il Resource Controller appena creato da `App\Http\Controllers` a una nuova cartella `App\Http\Controllers\Admin` 
-
-Nel controller correggere il namespace ed importare il Controller generico
-```php
-<?php
-namespace App\Http\Controllers\Admin; // era "App\Http\Controllers"
-use App\Http\Controllers\Controller; // Controller di base da importare (!)
-//...ecc
-```
-
-Ora possiamo spostare le rotte del Resource Controller all'interno del blocco protetto da autenticazione:
-
-```php
-
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-
-	Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-	
-	// Admin Post CRUD
-	Route::resource('posts', PostController::class);
-});
-```
-
-A questo punto avrebbe senso anche spostare tutte le viste richiamate dal controller. Se prima si creava sotto "views" una cartella "nomeRisorsa" con tutte le viste:
-```bash
-/resources/views/posts/*.blade.php
-```
-Adesso invece quella cartella andrà creata sotto "views/admin"
-```bash
-/resources/views/admin/posts/*.blade.php
-```
+Contatti
+LinkedIn: Filippo Bonanno
+Email: bonanno_filippo@outlook.com
